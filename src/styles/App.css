@@ -1,0 +1,31 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  line-height: calc(1em + 0.5rem);
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body, html {
+  background: #141414;
+  font-size: 16px;
+  color: #fff;
+}
+
+
+/*? Scrollbar */
+body::-webkit-scrollbar {
+  width: 4px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #fb923c;
+  outline: 1px solid #fb923c;
+  border-radius: 0.3rem;
+}
