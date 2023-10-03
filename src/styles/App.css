@@ -14,6 +14,13 @@ body, html {
   color: #fff;
 }
 
+.CircularProgressbar .CircularProgressbar-text {
+  font-weight: 700;
+}
+
+.CircularProgressbar .CircularProgressbar-trail {
+  stroke: transparent !important;
+}
 
 /*? Scrollbar */
 body::-webkit-scrollbar {
@@ -21,11 +28,11 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-  background: #ffffff;
+  background: #141414;
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: #fb923c;
-  outline: 1px solid #fb923c;
+  background-color: #b91c1c;
+  outline: 1px solid #b91c1c;
   border-radius: 0.3rem;
 }
