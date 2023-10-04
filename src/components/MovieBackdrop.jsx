@@ -46,7 +46,7 @@ export const MovieBackdrop = () => {
               <div className='absolute top-0 w-full h-full text-center flex items-end px-4 bg-gradient-to-t from-[#141414] from-10%'>
                 <div className='flex flex-col justify-center pr-4 mb-16 xs:mb-40 gap-2'>
                   <h1 className='text-white text-3xl font-bold mb-2 xs:text-4xl'>{movie.title}</h1>
-                  <div className='flex justify-center gap-2'>
+                  <div className='flex justify-center items-center gap-2'>
                     <RatingCircle rating={movie.vote_average}/>
                     <LightButton icon={<PlayArrowRoundedIcon/>} displayText="WATCH TRAILERS"/>
                   </div>
@@ -83,7 +83,7 @@ export const MovieBackdrop = () => {
                 </div>
                 <div className='order-2 flex flex-col justify-center pr-6 lg:pr-10 xl:pr-20 select-none gap-4'>
                   <h1 className='text-white text-3xl font-extrabold lg:text-4xl xl:text-5xl'>{movie.title}</h1>
-                  <div className='flex gap-2'>
+                  <div className='flex items-center gap-2'>
                     <RatingCircle rating={movie.vote_average}/>
                     <LightButton icon={<PlayArrowRoundedIcon/>} displayText="WATCH TRAILERS"/>
                   </div>

@@ -18,7 +18,7 @@ function Navbar () {
                 <input type="text" placeholder='SEARCH' className='pl-2 py-1 w-32 rounded-sm text-xs font-semibold outline-none focus:outline-1 focus:outline-red-700 transition-all ease-in-out lg:text-sm lg:w-48 xl:text-base xl:w-72' />
               </form>
               <label htmlFor="my-drawer-4" className="drawer-button btn btn-primary bg-transparent border-none outline-none hover:bg-transparent hover:text-red-700 active:text-red-700 md:hidden"><MenuOpenIcon/></label>            
-              <ul className='gap-6 text-xs tracking-widest hidden md:flex md:items-center md:pr-4 lg:text-sm xl:text-base'>
+              <ul className='gap-6 text-xs tracking-widest hidden md:flex md:items-center md:pr-4 lg:text-sm xl:text-base text-[#fff]'>
                 <li className='hover:text-red-700 cursor-pointer font-semibold transition-all ease-in-out'>HOME</li>
                 <li className='hover:text-red-700 cursor-pointer font-semibold transition-all ease-in-out'>MOVIES</li>
                 <li className='hover:text-red-700 cursor-pointer font-semibold transition-all ease-in-out'>TV SHOWS</li>
@@ -35,7 +35,7 @@ function Navbar () {
             <div className='flex justify-center'>
               <img src={Trailers} alt="Trailers Logo" className='h-5 xs:h-6 lg:h-7'/>
             </div>
-            <div className='flex flex-col justify-center items-center text-xs gap-8 tracking-widest lg:text-sm xl:text-base'>
+            <div className='flex flex-col justify-center items-center text-xs gap-8 tracking-widest lg:text-sm xl:text-base text-[#fff]'>
               <li className='cursor-pointer hover:text-red-700 font-semibold md:hidden'>HOME</li>
               <li className='cursor-pointer hover:text-red-700 font-semibold md:hidden'>MOVIES</li>
               <li className='cursor-pointer hover:text-red-700 font-semibold md:hidden'>TV SHOWS</li>

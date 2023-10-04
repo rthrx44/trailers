@@ -41,7 +41,7 @@ export const TrendingMovies = () => {
         freeMode={true}
       >
         {movies.map((movie, idx) => (
-            <SwiperSlide key={idx} className="py-8 group hover:scale-105 hover:scale-x-105 hover:scale-y-105 transition-all cursor-pointer">
+            <SwiperSlide key={idx} className="py-8 group hover:scale-105 focus:scale-105 transition-all cursor-pointer">
               <div className="p-4">
                 <img
                   className='bg-cover w-full mx-auto'
