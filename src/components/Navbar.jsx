@@ -15,7 +15,7 @@ function Navbar () {
             </div>
             <div className='flex items-center md:gap-6'>
               <form className='tracking-widest relative'>
-                <input type="text" placeholder='SEARCH' className='pl-2 py-1 w-32 rounded-sm text-xs font-semibold outline-none focus:outline-1 focus:outline-red-700 transition-all ease-in-out lg:text-sm lg:w-48 xl:text-base xl:w-72' />
+                <input type="text" placeholder='SEARCH' className='pl-2 py-1 w-32 rounded-sm text-xs font-semibold bg-[#3b3b3b] outline-none focus:outline-1 focus:outline-red-700 transition-all ease-in-out lg:text-sm lg:w-48 xl:text-base xl:w-72' />
               </form>
               <label htmlFor="my-drawer-4" className="drawer-button btn btn-primary bg-transparent border-none outline-none hover:bg-transparent hover:text-red-700 active:text-red-700 md:hidden"><MenuOpenIcon/></label>            
               <ul className='gap-6 text-xs tracking-widest hidden md:flex md:items-center md:pr-4 lg:text-sm xl:text-base text-[#fff]'>
@@ -57,7 +57,7 @@ function Navbar () {
               <li className='cursor-pointer hover:text-red-700 md:flex'>MYSTERY</li>
               <li className='cursor-pointer hover:text-red-700 md:flex'>ROMANCE</li>
               <li className='cursor-pointer hover:text-red-700 md:flex'>SCIENCE FICTION</li>
-              <li className='cursor-pointer hover:text-red-700 md:flex'>TV MOVIE</li>
+              <li className='cursor-pointer hover:text-red-700 md:flex'>TV SHOWS</li>
               <li className='cursor-pointer hover:text-red-700 md:flex'>THRILLER</li>
               <li className='cursor-pointer hover:text-red-700 md:flex'>WAR</li>
               <li className='cursor-pointer hover:text-red-700 md:flex'>WESTERN</li>
