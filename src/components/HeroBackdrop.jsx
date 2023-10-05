@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+import axios from 'axios';
+import dayjs from 'dayjs';
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from 'swiper/modules';
@@ -8,20 +10,30 @@ import { RatingCircle } from './RatingCircle';
 import { LightButton } from './Buttons';
 
 import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded';
+import FiberManualRecordRoundedIcon from '@mui/icons-material/FiberManualRecordRounded';
 
-
-export const MovieBackdrop = () => {
+export const HeroBackdrop = () => {
   const [moviesBackdrop, setMoviesBackdrop] = useState([]);
 
-  const fetchMovieBackdrop = () => {
-    fetch("https://api.themoviedb.org/3/discover/movie?api_key=2f1b97f3c5516282fbe25825bb55595c&include_image_language=en")
-      .then((res) => res.json())
-      .then((json) => setMoviesBackdrop(json.results))
-      .catch((err) => console.error("error:" + err));
+  const BASE_URL = process.env.REACT_APP_BASE_URL
+  const AUTH_KEY = process.env.REACT_APP_AUTH_KEY
+  const discoverMovie = useRef(() => {})
+
+  const options = {
+    params: {language: 'en-US'},
+    headers: {
+      accept: 'application/json',
+      Authorization: `Bearer ${AUTH_KEY}`
+    }
   };
 
+  discoverMovie.current = async () => {
+    const { data: {results} } = await axios.get(`${BASE_URL}/discover/movie`, options)
+    setMoviesBackdrop(results)
+  }
+
   useEffect(() => {
-    fetchMovieBackdrop();
+    discoverMovie.current()
   }, []);
 
   return (
@@ -81,13 +93,16 @@ export const MovieBackdrop = () => {
                     src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                     alt="movie.id" />
                 </div>
-                <div className='order-2 flex flex-col justify-center pr-6 lg:pr-10 xl:pr-20 select-none gap-4'>
-                  <h1 className='text-white text-3xl font-extrabold lg:text-4xl xl:text-5xl'>{movie.title}</h1>
-                  <div className='flex items-center gap-2'>
-                    <RatingCircle rating={movie.vote_average}/>
-                    <LightButton icon={<PlayArrowRoundedIcon/>} displayText="WATCH TRAILERS"/>
+                <div className='order-2 flex flex-col justify-center pr-6 lg:pr-10 xl:pr-20 select-none gap-2'>
+                  <h1 className='text-white text-2xl font-extrabold pb-2 md:text-3xl lg:text-4xl xl:text-5xl truncate'>{movie.title}</h1>
+                  <div className='flex flex-col gap-4'>
+                    <div className='flex gap-2'>
+                      <RatingCircle rating={movie.vote_average}/>
+                      <LightButton icon={<PlayArrowRoundedIcon/>} displayText="WATCH TRAILERS"/>
+                      <p className='flex items-center gap-2 text-white tracking-widest xs:text-xs xs:leading-[13px] md:leading-4 lg:text-sm xl:text-base'><FiberManualRecordRoundedIcon sx={{fontSize: 11}}/>{dayjs(movie.release_date).format("YYYY")}</p>
+                    </div>
+                    <p className='text-white tracking-widest xs:text-xs xs:leading-[13px] md:leading-4 lg:text-sm xl:text-base'>{movie.overview}</p>
                   </div>
-                  <p className='text-white tracking-widest xs:text-xs xs:leading-[13px] md:leading-4 lg:text-sm xl:text-base'>{movie.overview}</p>
                 </div>
               </div>
             </SwiperSlide>

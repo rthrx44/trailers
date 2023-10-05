@@ -9,7 +9,7 @@ function Navbar () {
         <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content">
           {/* Page content here */}
-          <header className='flex justify-between items-center bg-[#141414] color-[#fff] pl-4 py-2 md:py-4 lg:px-8 xl:px-16 2xl:container 2xl:mx-auto'>
+          <header className='flex justify-between items-center bg-[#141414] color-[#fff] pl-4 py-2 md:py-4 2xl:container 2xl:mx-auto'>
             <div>
               <img src={Trailers} alt="Trailers Logo" className='h-5 xs:h-6 lg:h-7 xl:h-8' />
             </div>
@@ -22,7 +22,7 @@ function Navbar () {
                 <li className='hover:text-red-700 cursor-pointer font-semibold transition-all ease-in-out'>HOME</li>
                 <li className='hover:text-red-700 cursor-pointer font-semibold transition-all ease-in-out'>MOVIES</li>
                 <li className='hover:text-red-700 cursor-pointer font-semibold transition-all ease-in-out'>TV SHOWS</li>
-                <li className='hover:text-red-700 cursor-pointer font-semibold transition-all ease-in-out'>WATCH LIST</li>
+                <li className='hover:text-red-700 cursor-pointer font-semibold transition-all ease-in-out'>BROWSE</li>
                 <label htmlFor="my-drawer-4" className="drawer-button btn btn-primary bg-transparent px-0 border-none outline-none hover:bg-transparent hover:text-red-700 active:text-red-700"><MenuOpenIcon/></label>            
               </ul>
             </div>
