@@ -12,7 +12,7 @@ import { Card } from "./utils/Card";
 export const TrendingMovie = () => {
   const [movies, setMovies] = useState([]);
   
-  const BASE_URL = process.env.REACT_APP_BASE_URL
+  const BASE_URL = "https://api.themoviedb.org/3"
   const AUTH_KEY = process.env.REACT_APP_AUTH_KEY
   const fetchMovie = useRef(() => {})
 
@@ -62,7 +62,7 @@ export const TrendingMovie = () => {
 export const TrendingTv = () => {
   const [movies, setMovies] = useState([]);
   
-  const BASE_URL = process.env.REACT_APP_BASE_URL
+  const BASE_URL = "https://api.themoviedb.org/3"
   const AUTH_KEY = process.env.REACT_APP_AUTH_KEY
   const fetchMovie = useRef(() => {})
 

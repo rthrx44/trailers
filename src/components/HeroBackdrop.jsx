@@ -14,7 +14,7 @@ import FiberManualRecordRoundedIcon from '@mui/icons-material/FiberManualRecordR
 export const HeroBackdrop = () => {
   const [moviesBackdrop, setMoviesBackdrop] = useState([]);
 
-  const BASE_URL = process.env.REACT_APP_BASE_URL
+  const BASE_URL = "https://api.themoviedb.org/3"
   const AUTH_KEY = process.env.REACT_APP_AUTH_KEY
   const discoverMovie = useRef(() => {})
 
