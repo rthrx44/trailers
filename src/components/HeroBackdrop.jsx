@@ -59,7 +59,8 @@ export const HeroBackdrop = () => {
                   <h1 className='text-white text-3xl font-bold mb-2 xs:text-4xl'>{movie.title || movie.name}</h1>
                   <div className='flex justify-center items-center gap-2'>
                     <RatingCircle rating={movie.vote_average.toFixed(1)}/>
-                    <LightButton icon={<PlayArrowRoundedIcon/>} displayText="WATCH TRAILERS"/>
+                    <LightButton icon={<PlayArrowRoundedIcon/>} displayText="WATCH NOW"/>
+                    <p className='flex items-center gap-2 text-white tracking-widest uppercase xs:text-xs xs:leading-[13px] md:leading-4 lg:text-sm xl:text-base'><FiberManualRecordRoundedIcon sx={{fontSize: 10}}/>{movie.media_type}</p>
                   </div>
                   <p className='h-20 text-white text-xs tracking-widest xs:text-sm text-ellipsis overflow-hidden'>{movie.overview}</p>
                 </div>
@@ -97,7 +98,7 @@ export const HeroBackdrop = () => {
                   <div className='flex flex-col gap-4'>
                     <div className='flex gap-2'>
                       <RatingCircle rating={movie.vote_average.toFixed(1)}/>
-                      <LightButton icon={<PlayArrowRoundedIcon/>} displayText="WATCH TRAILERS"/>
+                      <LightButton icon={<PlayArrowRoundedIcon/>} displayText="WATCH NOW"/>
                       <p className='flex items-center gap-2 text-white tracking-widest uppercase xs:text-xs xs:leading-[13px] md:leading-4 lg:text-sm xl:text-base'><FiberManualRecordRoundedIcon sx={{fontSize: 10}}/>{movie.media_type}</p>
                     </div>
                     <p className='text-white tracking-widest xs:text-xs xs:leading-[13px] md:leading-4 lg:text-sm xl:text-base'>{movie.overview}</p>

@@ -5,7 +5,7 @@ import TMDBL from "./assets/TMDBL.svg";
 import TMDBSF from "./assets/TMDBSF.svg";
 import YTS from "./assets/YTS.png";
 
-export const Footer = () => {
+function Footer () {
   return (
     <>
     <div className="container mx-auto md:grid md:grid-cols-3 md:place-items-center">
@@ -29,7 +29,7 @@ export const Footer = () => {
         <p className="text-center text-xs lg:text-sm xl:text-base text-[#fff] text-opacity-40"><b>"This product uses the TMDB API but is not endorsed or certified by TMDB."</b></p>
       </div>
       <div className="mt-10 flex flex-col items-center gap-4 px-12 md:mb-10 order-3">
-        <img src={YTS} alt="TMDB Logo" className="h-6 xs:h-7 lg:h-8" />
+        <img src={YTS} alt="YTS Logo" className="h-6 xs:h-7 lg:h-8" />
         <p className="text-center text-xs lg:text-sm xl:text-base text-[#fff] text-opacity-40"><b>"This product uses the YTS API but is not endorsed or certified by YTS."</b></p>
       </div>
     </div>
@@ -39,3 +39,5 @@ export const Footer = () => {
     </>
   );
 };
+
+export default Footer;

@@ -1,15 +1,13 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
 import { HeroBackdrop } from '../components/HeroBackdrop';
 import { TrendingMovie, TrendingTv } from '../components/Trending';
 import { PopularMovie, PopularTv } from '../components/Popular';
 import { TopRatedMovie, TopRatedTv } from '../components/TopRated';
-import { Footer } from '../components/Footer';
 
 function Landing() {
   return (
+    <>
     <div>
-      <Navbar/>
       <section>
         <HeroBackdrop/>
       </section>
@@ -43,8 +41,8 @@ function Landing() {
           <TopRatedTv/>
         </div>
       </section>
-      <Footer/>
     </div>
+    </>
   )
 }
 
