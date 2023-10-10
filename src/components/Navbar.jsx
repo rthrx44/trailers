@@ -30,7 +30,7 @@ function Navbar () {
         <div className="drawer-side z-50">
           <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
             {/* Sidebar content here */}
-          <ul className="menu p-4 w-3/6 flex justify-center items-center h-full bg-[#141414] color-[#fff] text-xs gap-8 tracking-widest lg:text-sm xl:text-base text-[#fff] outline outline-red-700">
+          <ul className="menu p-4 w-3/6 flex justify-center items-center h-full bg-[#141414] color-[#fff] text-xs gap-8 tracking-widest lg:text-sm xl:text-base text-[#fff]">
             <li className='cursor-pointer hover:text-red-700 font-semibold md:hidden'>HOME</li>
             <li className='cursor-pointer hover:text-red-700 font-semibold md:hidden'>BROWSE</li>
             <li className='cursor-pointer hover:text-red-700 font-semibold md:hidden'>MOVIES</li>

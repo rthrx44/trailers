@@ -4,6 +4,7 @@ import { HeroBackdrop } from '../components/HeroBackdrop';
 import { TrendingMovie, TrendingTv } from '../components/Trending';
 import { PopularMovie, PopularTv } from '../components/Popular';
 import { TopRatedMovie, TopRatedTv } from '../components/TopRated';
+import { Footer } from '../components/Footer';
 
 function Landing() {
   return (
@@ -42,6 +43,7 @@ function Landing() {
           <TopRatedTv/>
         </div>
       </section>
+      <Footer/>
     </div>
   )
 }
