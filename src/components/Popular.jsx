@@ -2,12 +2,12 @@ import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode } from 'swiper/modules';
+import { FreeMode, Navigation } from 'swiper/modules';
 import "swiper/css";
 import "swiper/css/navigation"
 import "swiper/css/free-mode"
 
-import { MovieCard, TvCard } from "./Card";
+import { Card } from "./utils/Card";
 
 export const PopularMovie = () => {
   const [movies, setMovies] = useState([]);
@@ -36,7 +36,7 @@ export const PopularMovie = () => {
   return (
     <div>
       <Swiper 
-        modules={[FreeMode]}
+        modules={[FreeMode, Navigation]}
         slidesPerView={2}
         breakpoints={{
           520: {slidesPerView: 3},
@@ -47,10 +47,11 @@ export const PopularMovie = () => {
           1536: {slidesPerView: 8},
           }}
         freeMode={true}
+        navigation
       >
         {movies.map((movie, idx) => (
-            <SwiperSlide key={idx} className="py-8 group hover:!scale-110 duration-300 cursor-pointer">
-              <MovieCard data={movie}/>
+            <SwiperSlide key={idx} className="py-8 cursor-pointer">
+              <Card data={movie}/>
             </SwiperSlide>
           ))}
       </Swiper>
@@ -85,7 +86,7 @@ export const PopularTv = () => {
   return (
     <div>
       <Swiper 
-        modules={[FreeMode]}
+        modules={[FreeMode, Navigation]}
         slidesPerView={2}
         breakpoints={{
           520: {slidesPerView: 3},
@@ -96,10 +97,11 @@ export const PopularTv = () => {
           1536: {slidesPerView: 8},
           }}
         freeMode={true}
+        navigation
       >
         {movies.map((tv, idx) => (
-            <SwiperSlide key={idx} className="py-8 group hover:!scale-110 duration-300 cursor-pointer">
-              <TvCard data={tv}/>
+            <SwiperSlide key={idx} className="py-8 cursor-pointer">
+              <Card data={tv}/>
             </SwiperSlide>
           ))}
       </Swiper>
