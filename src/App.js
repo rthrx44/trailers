@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer'
 import { useEffect, useState } from 'react';
+import { Details } from './components/utils/Details';
 import Loading from './components/Loading';
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       setShowLoading(false);
-    }, 4500);
+    }, 3500);
   });
   return (
     <>        
@@ -22,6 +23,7 @@ function App() {
         <Navbar/>
           <Routes>
             <Route path='/' element={<Landing/>}/>
+            <Route path='/movie/:id' element={<Details/>}/>
           </Routes>
         <Footer/>
       </BrowserRouter>

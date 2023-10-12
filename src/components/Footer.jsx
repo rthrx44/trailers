@@ -34,7 +34,7 @@ function Footer () {
       </div>
     </div>
     <div className="mt-10 px-4">
-      <p className="text-center text-xs text-[#fff] text-opacity-20"><b>Copyright © 2023. Designed and built by Ruther Dio. All rights reserved.</b></p>
+      <p className="text-center text-xs text-[#fff] text-opacity-20"><b>Copyright © 2023. Designed and built by Ruther Dio.</b></p>
     </div>
     </>
   );

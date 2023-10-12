@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from 'swiper/modules';
 import "swiper/css";
 import "swiper/css/autoplay"
-import { RatingCircle } from './RatingCircle';
+import { RatingCircle } from './utils/RatingCircle';
 import { LightButton } from './Buttons';
 
 import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded';
@@ -60,7 +60,7 @@ export const HeroBackdrop = () => {
                   <div className='flex justify-center items-center gap-2'>
                     <RatingCircle rating={movie.vote_average.toFixed(1)}/>
                     <LightButton icon={<PlayArrowRoundedIcon/>} displayText="WATCH NOW"/>
-                    <p className='flex items-center gap-2 text-white tracking-widest uppercase xs:text-xs xs:leading-[13px] md:leading-4 lg:text-sm xl:text-base'><FiberManualRecordRoundedIcon sx={{fontSize: 10}}/>{movie.media_type}</p>
+                    <p className='flex items-center gap-2 text-white tracking-widest uppercase text-xs'><FiberManualRecordRoundedIcon sx={{fontSize: 10}}/>{movie.media_type}</p>
                   </div>
                   <p className='h-20 text-white text-xs tracking-widest xs:text-sm text-ellipsis overflow-hidden'>{movie.overview}</p>
                 </div>

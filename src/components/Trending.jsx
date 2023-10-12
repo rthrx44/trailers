@@ -7,7 +7,7 @@ import "swiper/css";
 import "swiper/css/navigation"
 import "swiper/css/free-mode"
 
-import { Card } from "./utils/Card";
+import { MovieCard, TvCard } from "./utils/Card";
 
 export const TrendingMovie = () => {
   const [movies, setMovies] = useState([]);
@@ -51,7 +51,7 @@ export const TrendingMovie = () => {
       >
         {movies.map((movie, idx) => (
             <SwiperSlide key={idx} className="py-8 cursor-pointer">
-              <Card data={movie}/>
+              <MovieCard data={movie}/>
             </SwiperSlide>
           ))}
       </Swiper>
@@ -101,7 +101,7 @@ export const TrendingTv = () => {
       >
         {movies.map((tv, idx) => (
             <SwiperSlide key={idx} className="py-8 cursor-pointer">
-              <Card data={tv}/>
+              <TvCard data={tv}/>
             </SwiperSlide>
           ))}
       </Swiper>

@@ -1,12 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { HeroBackdrop } from '../components/HeroBackdrop';
 import { TrendingMovie, TrendingTv } from '../components/Trending';
 import { PopularMovie, PopularTv } from '../components/Popular';
 import { TopRatedMovie, TopRatedTv } from '../components/TopRated';
+import Loading from '../components/Loading';
 
 function Landing() {
+  const [showLoading, setShowLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShowLoading(false);
+    }, 3000);
+  });
+
   return (
     <>
+    {showLoading && <Loading/>}
     <div>
       <section>
         <HeroBackdrop/>
