@@ -58,7 +58,7 @@ export const HeroBackdrop = () => {
                 <div className='flex flex-col justify-center pr-4 mb-16 xs:mb-40 gap-2'>
                   <h1 className='text-white text-3xl font-bold mb-2 xs:text-4xl'>{movie.title || movie.name}</h1>
                   <div className='flex justify-center items-center gap-2'>
-                    <RatingCircle rating={movie.vote_average.toFixed(1)}/>
+                    <RatingCircle rating={Number(movie.vote_average).toFixed(1)}/>
                     <LightButton icon={<PlayArrowRoundedIcon/>} displayText="WATCH NOW"/>
                     <p className='flex items-center gap-2 text-white tracking-widest uppercase text-xs'><FiberManualRecordRoundedIcon sx={{fontSize: 10}}/>{movie.media_type}</p>
                   </div>
@@ -91,13 +91,13 @@ export const HeroBackdrop = () => {
                   <img 
                     className='w-full shadow-zinc-700 shadow-lg sm:w-52 md:w-60 lg:w-72 xl:w-80 2xl:w-[22rem]'
                     src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                    alt="movie.id" />
+                    alt={movie.id} />
                 </div>
                 <div className='order-2 flex flex-col justify-center pr-6 lg:pr-10 xl:pr-20 select-none gap-2'>
                   <h1 className='text-white text-2xl font-extrabold pb-2 md:text-3xl lg:text-4xl xl:text-5xl truncate'>{movie.title || movie.name}</h1>
                   <div className='flex flex-col gap-4'>
                     <div className='flex gap-2'>
-                      <RatingCircle rating={movie.vote_average.toFixed(1)}/>
+                      <RatingCircle rating={Number(movie.vote_average).toFixed(1)}/>
                       <LightButton icon={<PlayArrowRoundedIcon/>} displayText="WATCH NOW"/>
                       <p className='flex items-center gap-2 text-white tracking-widest uppercase xs:text-xs xs:leading-[13px] md:leading-4 lg:text-sm xl:text-base'><FiberManualRecordRoundedIcon sx={{fontSize: 10}}/>{movie.media_type}</p>
                     </div>

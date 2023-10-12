@@ -32,7 +32,7 @@ export const MovieCard = (props) => {
             </p>
           </div>
           <div className="order-2">
-            <RatingCircle rating={props.data.vote_average.toFixed(1)} />
+            <RatingCircle rating={Number(props.data.vote_average).toFixed(1)} />
           </div>
         </div>
         <Link to={`/movie/${props.data.id}`}>
@@ -70,7 +70,7 @@ export const TvCard = (props) => {
             </p>
           </div>
           <div className="order-2">
-            <RatingCircle rating={props.data.vote_average.toFixed(1)} />
+            <RatingCircle rating={Number(props.data.vote_average).toFixed(1)} />
           </div>
         </div>
         <Link>
