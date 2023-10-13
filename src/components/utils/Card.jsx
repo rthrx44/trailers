@@ -35,13 +35,13 @@ export const MovieCard = (props) => {
             <RatingCircle rating={Number(props.data.vote_average).toFixed(1)} />
           </div>
         </div>
-        <Link to={`/movie/${props.data.id}`}>
+        <a href={`/movie/${props.data.id}`}>
           <WatchButton
             icon={<PlayArrowRoundedIcon />}
             displayText="WATCH NOW"
             buttonClick={setId}
           />
-        </Link>
+        </a>
       </div>
     </div>
   );

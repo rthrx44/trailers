@@ -3,8 +3,7 @@ import axios from 'axios';
 import Loading from '../Loading';
 import { RatingCircle } from './RatingCircle';
 
-export const Details = () => {
-  const [showLoading, setShowLoading] = useState(true);
+export const Details = ({showLoading}) => {
   const [movieDetails, setMovieDetails] = useState({})
   const getId = localStorage.getItem("clickItem")
 
@@ -22,15 +21,8 @@ export const Details = () => {
 
   fetchMovie.current = async() => {
     const { data } = await axios.get(`${BASE_URL}/movie/${getId}`, options)
-    console.log(data);
     setMovieDetails(data)
   }
-
-  useEffect(() => {
-    setTimeout(() => {
-      setShowLoading(false);
-    }, 3000);
-  });
 
   useEffect(() => {
     fetchMovie.current();

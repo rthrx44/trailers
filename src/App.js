@@ -14,7 +14,7 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       setShowLoading(false);
-    }, 3500);
+    }, 3000);
   });
   return (
     <>        
@@ -22,8 +22,8 @@ function App() {
       <BrowserRouter>
         <Navbar/>
           <Routes>
-            <Route path='/' element={<Landing/>}/>
-            <Route path='/movie/:id' element={<Details/>}/>
+            <Route path='/' element={<Landing showLoading={showLoading}/>}/>
+            <Route path='/movie/:id' element={<Details showLoading={showLoading}/>}/>
           </Routes>
         <Footer/>
       </BrowserRouter>

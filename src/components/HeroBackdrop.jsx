@@ -13,6 +13,7 @@ import FiberManualRecordRoundedIcon from '@mui/icons-material/FiberManualRecordR
 
 export const HeroBackdrop = () => {
   const [moviesBackdrop, setMoviesBackdrop] = useState([]);
+  console.log(moviesBackdrop);
 
   const BASE_URL = "https://api.themoviedb.org/3"
   const AUTH_KEY = process.env.REACT_APP_AUTH_KEY
@@ -28,6 +29,7 @@ export const HeroBackdrop = () => {
 
   discoverMovie.current = async () => {
     const { data: {results} } = await axios.get(`${BASE_URL}/trending/all/day`, options)
+    console.log(results);
     setMoviesBackdrop(results)
   }
 
@@ -59,7 +61,11 @@ export const HeroBackdrop = () => {
                   <h1 className='text-white text-3xl font-bold mb-2 xs:text-4xl'>{movie.title || movie.name}</h1>
                   <div className='flex justify-center items-center gap-2'>
                     <RatingCircle rating={Number(movie.vote_average).toFixed(1)}/>
-                    <LightButton icon={<PlayArrowRoundedIcon/>} displayText="WATCH NOW"/>
+                    {/* <a href={`/movie/${movie.id}`}> */}
+                      <LightButton 
+                        icon={<PlayArrowRoundedIcon/>} 
+                        displayText="WATCH NOW"/>
+                    {/* </a> */}
                     <p className='flex items-center gap-2 text-white tracking-widest uppercase text-xs'><FiberManualRecordRoundedIcon sx={{fontSize: 10}}/>{movie.media_type}</p>
                   </div>
                   <p className='h-20 text-white text-xs tracking-widest xs:text-sm text-ellipsis overflow-hidden'>{movie.overview}</p>
@@ -96,10 +102,14 @@ export const HeroBackdrop = () => {
                 <div className='order-2 flex flex-col justify-center pr-6 lg:pr-10 xl:pr-20 select-none gap-2'>
                   <h1 className='text-white text-2xl font-extrabold pb-2 md:text-3xl lg:text-4xl xl:text-5xl truncate'>{movie.title || movie.name}</h1>
                   <div className='flex flex-col gap-4'>
-                    <div className='flex gap-2'>
+                    <div className='flex gap-2 items-center'>
                       <RatingCircle rating={Number(movie.vote_average).toFixed(1)}/>
-                      <LightButton icon={<PlayArrowRoundedIcon/>} displayText="WATCH NOW"/>
-                      <p className='flex items-center gap-2 text-white tracking-widest uppercase xs:text-xs xs:leading-[13px] md:leading-4 lg:text-sm xl:text-base'><FiberManualRecordRoundedIcon sx={{fontSize: 10}}/>{movie.media_type}</p>
+                      <a href={`/movie/${moviesBackdrop.id}`}>
+                        <LightButton 
+                          icon={<PlayArrowRoundedIcon/>} 
+                          displayText="WATCH NOW"/>
+                      </a>
+                      <p className='flex items-center justify-center gap-2 text-white tracking-widest uppercase xs:text-xs xs:leading-[13px] md:leading-4 lg:text-sm xl:text-base'><FiberManualRecordRoundedIcon sx={{fontSize: 10}}/>{movie.media_type}</p>
                     </div>
                     <p className='text-white tracking-widest xs:text-xs xs:leading-[13px] md:leading-4 lg:text-sm xl:text-base'>{movie.overview}</p>
                   </div>
