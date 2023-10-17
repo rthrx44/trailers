@@ -21,6 +21,7 @@ export const Details = ({showLoading}) => {
 
   fetchMovie.current = async() => {
     const { data } = await axios.get(`${BASE_URL}/movie/${getId}`, options)
+    console.log(data);
     setMovieDetails(data)
   }
 
@@ -32,16 +33,16 @@ export const Details = ({showLoading}) => {
     <>
       {showLoading && <Loading/>}
       <div className='px-4 2xl:container mx-auto'>
-        <div className="">
+        <div className="mt-4 mb-8 xl:mb-12">
           <iframe
-            className="w-full p-4 aspect-video md:p-10 2xl:aspect-square"
+            className="w-full aspect-video xs:px-6 sm:px-10 md:p-14 lg:px-16 xl:px-20"
             src={'https://autoembed.to/movie/tmdb/' + getId}
             allowFullScreen={true}
             title='Video Container'
           ></iframe>
         </div>
       </div>
-      <div className='relative mx-auto'>
+      <div className='relative container mx-auto'>
         <img 
           className='sm:hidden w-full mx-auto grayscale opacity-25'
           src={`https://image.tmdb.org/t/p/original${movieDetails.poster_path}`} 
@@ -61,11 +62,33 @@ export const Details = ({showLoading}) => {
             <RatingCircle rating={Number(movieDetails.vote_average).toFixed(1)}/>
             <p className='text-white tracking-widest text-xs xs:leading-[13px] md:leading-4 lg:text-sm xl:text-base'>{movieDetails.runtime} mins</p>
           </div>
-          <div className='order-2 flex flex-col justify-center pr-6 lg:pr-10 xl:pr-20 select-none gap-2 px-4'>
+          <div className='order-2 flex flex-col justify-center pr-6 lg:pr-10 xl:pr-20 select-none gap-2 px-4 outline'>
             <h1 className='text-white text-center text-2xl font-extrabold pb-2 md:text-3xl lg:text-4xl xl:text-5xl'>{movieDetails.title}</h1>
-            <p className='text-white tracking-widest text-xs xs:leading-[13px] md:leading-4 lg:text-sm xl:text-base outline'>{movieDetails.overview}</p>
+            <p className='text-white tracking-widest text-xs xs:leading-[13px] md:leading-4 lg:text-sm xl:text-base'>{movieDetails.overview}</p>
+          </div>
+          <div className='grid grid-cols-2 mt-4 px-4 gap-2 outline'>
+            <div className='order-1 text-white tracking-widest text-xs xs:leading-[13px] md:leading-4 lg:text-sm xl:text-base'>
+              <p><b>Status:</b> {movieDetails.status}</p>
+              <p><b>Released Date:</b> {movieDetails.release_date}</p>
+              <p><b>Genre:</b>
+                {movieDetails.genres &&
+                  movieDetails.genres.slice(0, 5).map((genre, idx) => (
+                    <span key={idx} className='cursor-pointer pl-1'>
+                      {genre.name}
+                    </span>
+                  ))}
+              </p>
+            </div>
+            <div className='order-2 text-white tracking-widest text-xs xs:leading-[13px] md:leading-4 lg:text-sm xl:text-base'>
+              <p><b>Duration:</b> {movieDetails.runtime} mins</p>
+              <p><b>Budget:</b> ${Number(movieDetails.budget).toLocaleString()}</p>
+              <p><b>Revenue:</b> ${Number(movieDetails.revenue).toLocaleString()}</p>
+            </div>
           </div>
         </div>
+      </div>
+      <div className='mt-20'>
+        <h1>Cast & Crew</h1>
       </div>
     </>
   )

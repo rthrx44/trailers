@@ -49,7 +49,7 @@ export const TrendingMovie = () => {
         freeMode={true}
         navigation
       >
-        {movies.map((movie, idx) => (
+        {movies.slice(0, 10).map((movie, idx) => (
             <SwiperSlide key={idx} className="py-8 cursor-pointer">
               <MovieCard data={movie}/>
             </SwiperSlide>
@@ -99,7 +99,7 @@ export const TrendingTv = () => {
         freeMode={true}
         navigation
       >
-        {movies.map((tv, idx) => (
+        {movies.slice(0, 10).map((tv, idx) => (
             <SwiperSlide key={idx} className="py-8 cursor-pointer">
               <TvCard data={tv}/>
             </SwiperSlide>

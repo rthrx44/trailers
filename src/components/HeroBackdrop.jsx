@@ -28,7 +28,6 @@ export const HeroBackdrop = () => {
 
   discoverMovie.current = async () => {
     const { data: {results} } = await axios.get(`${BASE_URL}/trending/all/day`, options)
-    console.log(results);
     setMoviesBackdrop(results)
   }
 
