@@ -23,7 +23,7 @@ body, html {
 }
 
 /*? Scrollbar */
-body::-webkit-scrollbar {
+body::-webkit-scrollbar, .overview::-webkit-scrollbar {
   width: 4px;
 }
 

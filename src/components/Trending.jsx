@@ -14,7 +14,7 @@ export const TrendingMovie = () => {
   
   const BASE_URL = "https://api.themoviedb.org/3"
   const AUTH_KEY = process.env.REACT_APP_AUTH_KEY
-  const fetchMovie = useRef(() => {})
+  const fetchTrendingMovie = useRef(() => {})
 
   const options = {
     params: {language: 'en-US'},
@@ -24,13 +24,13 @@ export const TrendingMovie = () => {
     }
   };
 
-  fetchMovie.current = async() => {
+  fetchTrendingMovie.current = async() => {
     const { data: {results} } = await axios.get(`${BASE_URL}/trending/movie/day`, options)
     setMovies(results)
   }
 
   useEffect(() => {
-    fetchMovie.current();
+    fetchTrendingMovie.current();
   }, []);
 
   return (
@@ -60,11 +60,11 @@ export const TrendingMovie = () => {
 }
 
 export const TrendingTv = () => {
-  const [movies, setMovies] = useState([]);
+  const [tvShows, setTvShows] = useState([]);
   
   const BASE_URL = "https://api.themoviedb.org/3"
   const AUTH_KEY = process.env.REACT_APP_AUTH_KEY
-  const fetchMovie = useRef(() => {})
+  const fetchTrendingTv = useRef(() => {})
 
   const options = {
     params: {language: 'en-US'},
@@ -74,13 +74,13 @@ export const TrendingTv = () => {
     }
   };
 
-  fetchMovie.current = async() => {
+  fetchTrendingTv.current = async() => {
     const { data: {results} } = await axios.get(`${BASE_URL}/trending/tv/day`, options)
-    setMovies(results)
+    setTvShows(results)
   }
 
   useEffect(() => {
-    fetchMovie.current();
+    fetchTrendingTv.current();
   }, []);
 
   return (
@@ -99,7 +99,7 @@ export const TrendingTv = () => {
         freeMode={true}
         navigation
       >
-        {movies.slice(0, 10).map((tv, idx) => (
+        {tvShows.slice(0, 10).map((tv, idx) => (
             <SwiperSlide key={idx} className="py-8 cursor-pointer">
               <TvCard data={tv}/>
             </SwiperSlide>

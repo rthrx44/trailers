@@ -44,6 +44,7 @@ export const MovieCard = (props) => {
 };
 
 export const TvCard = (props) => {
+  const setId = () => {localStorage.setItem('clickItem', JSON.stringify(props.data.id))}
   return (
     <div className="px-2 group hover:!scale-110 duration-300">
       <div className="relative">
@@ -67,12 +68,13 @@ export const TvCard = (props) => {
             <RatingCircle rating={Number(props.data.vote_average).toFixed(1)} />
           </div>
         </div>
-        <Link>
+        <a href={`/tv/${props.data.id}`}>
           <WatchButton
             icon={<PlayArrowRoundedIcon />}
             displayText="WATCH NOW"
+            buttonClick={setId}
           />
-        </Link>
+        </a>
       </div>
     </div>
   );

@@ -14,7 +14,7 @@ export const TopRatedMovie = () => {
   
   const BASE_URL = "https://api.themoviedb.org/3"
   const AUTH_KEY = process.env.REACT_APP_AUTH_KEY
-  const fetchMovie = useRef(() => {})
+  const fetchTopRatedMovie = useRef(() => {})
 
   const options = {
     params: {language: 'en-US'},
@@ -24,13 +24,13 @@ export const TopRatedMovie = () => {
     }
   };
 
-  fetchMovie.current = async() => {
+  fetchTopRatedMovie.current = async() => {
     const { data: {results} } = await axios.get(`${BASE_URL}/movie/top_rated`, options)
     setMovies(results)
   }
 
   useEffect(() => {
-    fetchMovie.current();
+    fetchTopRatedMovie.current();
   }, []);
 
   return (
@@ -60,11 +60,11 @@ export const TopRatedMovie = () => {
 }
 
 export const TopRatedTv = () => {
-  const [movies, setMovies] = useState([]);
+  const [tvShows, setTvShows] = useState([]);
   
   const BASE_URL = "https://api.themoviedb.org/3"
   const AUTH_KEY = process.env.REACT_APP_AUTH_KEY
-  const fetchMovie = useRef(() => {})
+  const fetchTopRatedTv = useRef(() => {})
 
   const options = {
     params: {language: 'en-US'},
@@ -74,13 +74,13 @@ export const TopRatedTv = () => {
     }
   };
 
-  fetchMovie.current = async() => {
+  fetchTopRatedTv.current = async() => {
     const { data: {results} } = await axios.get(`${BASE_URL}/tv/top_rated`, options)
-    setMovies(results)
+    setTvShows(results)
   }
 
   useEffect(() => {
-    fetchMovie.current();
+    fetchTopRatedTv.current();
   }, []);
 
   return (
@@ -99,7 +99,7 @@ export const TopRatedTv = () => {
         freeMode={true}
         navigation
       >
-        {movies.map((tv, idx) => (
+        {tvShows.map((tv, idx) => (
             <SwiperSlide key={idx} className="py-8 cursor-pointer">
               <TvCard data={tv}/>
             </SwiperSlide>

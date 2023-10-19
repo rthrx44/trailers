@@ -9,12 +9,13 @@ import "swiper/css/free-mode"
 
 import { MovieCard, TvCard } from "./utils/Card";
 
-export const PopularMovie = () => {
+export const SimilarMovie = () => {
   const [movies, setMovies] = useState([]);
+  const getId = localStorage.getItem("clickItem")
   
   const BASE_URL = "https://api.themoviedb.org/3"
   const AUTH_KEY = process.env.REACT_APP_AUTH_KEY
-  const fetchPopularMovie = useRef(() => {})
+  const fetchTopRatedMovie = useRef(() => {})
 
   const options = {
     params: {language: 'en-US'},
@@ -24,13 +25,14 @@ export const PopularMovie = () => {
     }
   };
 
-  fetchPopularMovie.current = async() => {
-    const { data: {results} } = await axios.get(`${BASE_URL}/movie/popular`, options)
-    setMovies(results)
+  fetchTopRatedMovie.current = async() => {
+    const { data } = await axios.get(`${BASE_URL}/movie/${getId}/similar`, options)
+    console.log(data);
+    setMovies(data)
   }
 
   useEffect(() => {
-    fetchPopularMovie.current();
+    fetchTopRatedMovie.current();
   }, []);
 
   return (
@@ -59,12 +61,12 @@ export const PopularMovie = () => {
   );
 }
 
-export const PopularTv = () => {
+export const SimilarTv = () => {
   const [tvShows, setTvShows] = useState([]);
   
   const BASE_URL = "https://api.themoviedb.org/3"
   const AUTH_KEY = process.env.REACT_APP_AUTH_KEY
-  const fetchPopularTv = useRef(() => {})
+  const fetchTopRatedTv = useRef(() => {})
 
   const options = {
     params: {language: 'en-US'},
@@ -74,13 +76,13 @@ export const PopularTv = () => {
     }
   };
 
-  fetchPopularTv.current = async() => {
-    const { data: {results} } = await axios.get(`${BASE_URL}/tv/popular`, options)
+  fetchTopRatedTv.current = async() => {
+    const { data: {results} } = await axios.get(`${BASE_URL}/tv/top_rated`, options)
     setTvShows(results)
   }
 
   useEffect(() => {
-    fetchPopularTv.current();
+    fetchTopRatedTv.current();
   }, []);
 
   return (
@@ -108,4 +110,3 @@ export const PopularTv = () => {
     </div>
   );
 }
-
