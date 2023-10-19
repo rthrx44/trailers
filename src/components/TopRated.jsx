@@ -40,11 +40,10 @@ export const TopRatedMovie = () => {
         slidesPerView={2}
         breakpoints={{
           520: {slidesPerView: 3},
-          640: {slidesPerView: 4},
-          768: {slidesPerView: 5},
-          1024: {slidesPerView: 6},
-          1280: {slidesPerView: 7},
-          1536: {slidesPerView: 8},
+          768: {slidesPerView: 4},
+          1024: {slidesPerView: 5},
+          1280: {slidesPerView: 6},
+          1536: {slidesPerView: 7},
           }}
         freeMode={true}
         navigation
@@ -90,11 +89,10 @@ export const TopRatedTv = () => {
         slidesPerView={2}
         breakpoints={{
           520: {slidesPerView: 3},
-          640: {slidesPerView: 4},
-          768: {slidesPerView: 5},
-          1024: {slidesPerView: 6},
-          1280: {slidesPerView: 7},
-          1536: {slidesPerView: 8},
+          768: {slidesPerView: 4},
+          1024: {slidesPerView: 5},
+          1280: {slidesPerView: 6},
+          1536: {slidesPerView: 7},
           }}
         freeMode={true}
         navigation

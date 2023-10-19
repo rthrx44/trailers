@@ -10,12 +10,12 @@ import "swiper/css/free-mode"
 import { MovieCard, TvCard } from "./utils/Card";
 
 export const SimilarMovie = () => {
-  const [movies, setMovies] = useState([]);
+  const [similarMovies, setSimilarMovies] = useState([]);
   const getId = localStorage.getItem("clickItem")
   
   const BASE_URL = "https://api.themoviedb.org/3"
   const AUTH_KEY = process.env.REACT_APP_AUTH_KEY
-  const fetchTopRatedMovie = useRef(() => {})
+  const fetchSimilarMovie = useRef(() => {})
 
   const options = {
     params: {language: 'en-US'},
@@ -25,33 +25,33 @@ export const SimilarMovie = () => {
     }
   };
 
-  fetchTopRatedMovie.current = async() => {
-    const { data } = await axios.get(`${BASE_URL}/movie/${getId}/similar`, options)
-    console.log(data);
-    setMovies(data)
+  fetchSimilarMovie.current = async() => {
+    const { data: {results} } = await axios.get(`${BASE_URL}/movie/${getId}/similar`, options)
+    console.log(results);
+    setSimilarMovies(results)
   }
 
   useEffect(() => {
-    fetchTopRatedMovie.current();
+    fetchSimilarMovie.current();
   }, []);
 
   return (
     <div>
+      <h1 className='text-lg tracking-widest font-semibold mx-4 border-l-[0.3rem] border-red-700 pl-2 lg:text-xl xl:text-2xl'>SIMILAR MOVIES</h1>
       <Swiper 
         modules={[FreeMode, Navigation]}
         slidesPerView={2}
         breakpoints={{
           520: {slidesPerView: 3},
-          640: {slidesPerView: 4},
-          768: {slidesPerView: 5},
-          1024: {slidesPerView: 6},
-          1280: {slidesPerView: 7},
-          1536: {slidesPerView: 8},
+          768: {slidesPerView: 4},
+          1024: {slidesPerView: 5},
+          1280: {slidesPerView: 6},
+          1536: {slidesPerView: 7},
           }}
         freeMode={true}
         navigation
       >
-        {movies.map((movie, idx) => (
+        {similarMovies.map((movie, idx) => (
             <SwiperSlide key={idx} className="py-8 cursor-pointer">
               <MovieCard data={movie}/>
             </SwiperSlide>
@@ -62,11 +62,12 @@ export const SimilarMovie = () => {
 }
 
 export const SimilarTv = () => {
-  const [tvShows, setTvShows] = useState([]);
+  const [similarTvShows, setSimilarTvShows] = useState([]);
+  const getId = localStorage.getItem("clickItem")
   
   const BASE_URL = "https://api.themoviedb.org/3"
   const AUTH_KEY = process.env.REACT_APP_AUTH_KEY
-  const fetchTopRatedTv = useRef(() => {})
+  const fetchSimilarTv = useRef(() => {})
 
   const options = {
     params: {language: 'en-US'},
@@ -76,13 +77,13 @@ export const SimilarTv = () => {
     }
   };
 
-  fetchTopRatedTv.current = async() => {
-    const { data: {results} } = await axios.get(`${BASE_URL}/tv/top_rated`, options)
-    setTvShows(results)
+  fetchSimilarTv.current = async() => {
+    const { data: {results} } = await axios.get(`${BASE_URL}/movie/${getId}/similar`, options)
+    setSimilarTvShows(results)
   }
 
   useEffect(() => {
-    fetchTopRatedTv.current();
+    fetchSimilarTv.current();
   }, []);
 
   return (
@@ -92,16 +93,15 @@ export const SimilarTv = () => {
         slidesPerView={2}
         breakpoints={{
           520: {slidesPerView: 3},
-          640: {slidesPerView: 4},
-          768: {slidesPerView: 5},
-          1024: {slidesPerView: 6},
-          1280: {slidesPerView: 7},
-          1536: {slidesPerView: 8},
+          768: {slidesPerView: 4},
+          1024: {slidesPerView: 5},
+          1280: {slidesPerView: 6},
+          1536: {slidesPerView: 7},
           }}
         freeMode={true}
         navigation
       >
-        {tvShows.map((tv, idx) => (
+        {similarTvShows.map((tv, idx) => (
             <SwiperSlide key={idx} className="py-8 cursor-pointer">
               <TvCard data={tv}/>
             </SwiperSlide>

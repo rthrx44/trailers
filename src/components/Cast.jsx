@@ -36,17 +36,16 @@ const Cast = () => {
 
   return (
     <div>
-      <h1 className='text-lg tracking-widest font-semibold mx-4 border-l-[0.3rem] border-red-700 pl-2 lg:text-xl xl:text-2xl'>Cast</h1>
+      <h1 className='mt-8 text-lg tracking-widest font-semibold mx-4 border-l-[0.3rem] border-red-700 pl-2 lg:text-xl xl:text-2xl'>CAST</h1>
       <Swiper 
         modules={[FreeMode, Navigation]}
         slidesPerView={2}
         breakpoints={{
           520: {slidesPerView: 3},
-          640: {slidesPerView: 4},
-          768: {slidesPerView: 5},
-          1024: {slidesPerView: 6},
-          1280: {slidesPerView: 7},
-          1536: {slidesPerView: 8},
+          768: {slidesPerView: 4},
+          1024: {slidesPerView: 5},
+          1280: {slidesPerView: 6},
+          1536: {slidesPerView: 7},
           }}
         freeMode={true}
         navigation

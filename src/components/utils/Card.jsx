@@ -1,6 +1,5 @@
 import React from "react";
 import dayjs from "dayjs";
-import { Link } from "react-router-dom";
 import { RatingCircle } from "./RatingCircle";
 import { WatchButton } from "../Buttons";
 

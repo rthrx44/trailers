@@ -24,7 +24,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Landing showLoading={showLoading}/>}/>
             <Route path='/movie/:id' element={<MovieDetails showLoading={showLoading}/>}/>
-            <Route path='/tv/:id' element={<TvDetails showLoading={showLoading}/>}/>
+            {/* <Route path='/tv/:id' element={<TvDetails showLoading={showLoading}/>}/> */}
           </Routes>
         <Footer/>
       </BrowserRouter>
