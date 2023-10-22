@@ -8,7 +8,7 @@ import YTS from "./assets/YTS.png";
 function Footer () {
   return (
     <>
-    <div className="container mx-auto md:grid md:grid-cols-3 md:place-items-center">
+    <div className="container mx-auto md:grid md:grid-cols-2 md:place-items-center">
       <div className="my-16 py-8 flex flex-col justify-center items-center gap-8 md:grid md:grid-cols-2 order-1">
         <div className="">
           <img src={Trailers} alt="Trailers Logo" className="h-5 xs:h-6 lg:h-7 xl:h-8 md:hidden" />
@@ -27,10 +27,6 @@ function Footer () {
         <img src={TMDBL} alt="TMDB Logo" className="h-4 xs:h-5 lg:h-6 xl:h-7 md:hidden" />
         <img src={TMDBSF} alt="TMDB Logo" className="hidden md:flex h-7 xs:h-8 lg:h-9 xl:h-10" />
         <p className="text-center text-xs lg:text-sm xl:text-base text-[#fff] text-opacity-40"><b>"This product uses the TMDB API but is not endorsed or certified by TMDB."</b></p>
-      </div>
-      <div className="mt-10 flex flex-col items-center gap-4 px-12 md:mb-10 order-3">
-        <img src={YTS} alt="YTS Logo" className="h-6 xs:h-7 lg:h-8" />
-        <p className="text-center text-xs lg:text-sm xl:text-base text-[#fff] text-opacity-40"><b>"This product uses the YTS API but is not endorsed or certified by YTS."</b></p>
       </div>
     </div>
     <div className="mt-10 px-4">

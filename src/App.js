@@ -6,7 +6,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer'
 import { useEffect, useState } from 'react';
 import Loading from './components/Loading';
-import { MovieDetails, TvDetails } from './components/utils/Details';
+import { MovieDetails, TvDetails } from './pages/Details';
 
 function App() {
   const [showLoading, setShowLoading] = useState(true);
@@ -24,7 +24,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Landing showLoading={showLoading}/>}/>
             <Route path='/movie/:id' element={<MovieDetails showLoading={showLoading}/>}/>
-            {/* <Route path='/tv/:id' element={<TvDetails showLoading={showLoading}/>}/> */}
+            <Route path='/tv/:id' element={<TvDetails showLoading={showLoading}/>}/>
           </Routes>
         <Footer/>
       </BrowserRouter>

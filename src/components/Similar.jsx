@@ -27,7 +27,6 @@ export const SimilarMovie = () => {
 
   fetchSimilarMovie.current = async() => {
     const { data: {results} } = await axios.get(`${BASE_URL}/movie/${getId}/similar`, options)
-    console.log(results);
     setSimilarMovies(results)
   }
 
@@ -36,7 +35,7 @@ export const SimilarMovie = () => {
   }, []);
 
   return (
-    <div>
+    <div className="mt-8">
       <h1 className='text-lg tracking-widest font-semibold mx-4 border-l-[0.3rem] border-red-700 pl-2 lg:text-xl xl:text-2xl'>SIMILAR MOVIES</h1>
       <Swiper 
         modules={[FreeMode, Navigation]}
@@ -78,7 +77,7 @@ export const SimilarTv = () => {
   };
 
   fetchSimilarTv.current = async() => {
-    const { data: {results} } = await axios.get(`${BASE_URL}/movie/${getId}/similar`, options)
+    const { data: {results} } = await axios.get(`${BASE_URL}/tv/${getId}/similar`, options)
     setSimilarTvShows(results)
   }
 
@@ -87,7 +86,8 @@ export const SimilarTv = () => {
   }, []);
 
   return (
-    <div>
+    <div className="mt-8">
+      <h1 className='text-lg tracking-widest font-semibold mx-4 border-l-[0.3rem] border-red-700 pl-2 lg:text-xl xl:text-2xl'>SIMILAR TV SHOWS</h1>
       <Swiper 
         modules={[FreeMode, Navigation]}
         slidesPerView={2}
