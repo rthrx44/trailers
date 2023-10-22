@@ -3,7 +3,6 @@ import Trailers from "./assets/Trailers.png";
 import T from "./assets/T.png";
 import TMDBL from "./assets/TMDBL.svg";
 import TMDBSF from "./assets/TMDBSF.svg";
-import YTS from "./assets/YTS.png";
 
 function Footer () {
   return (
