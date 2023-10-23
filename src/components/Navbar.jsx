@@ -11,7 +11,9 @@ function Navbar () {
           {/* Page content here */}
           <header className='flex justify-between items-center bg-[#141414] color-[#fff] pl-4 py-2 md:py-4 2xl:container 2xl:mx-auto'>
             <div>
-              <img src={Trailers} alt="Trailers Logo" className='h-5 xs:h-6 lg:h-7 xl:h-8' />
+              <a href="/">
+                <img src={Trailers} alt="Trailers Logo" className='h-5 xs:h-6 lg:h-7 xl:h-8' />
+              </a>
             </div>
             <div className='flex items-center md:gap-6'>
               <form className='tracking-widest relative'>

@@ -106,4 +106,40 @@ export const CastCard = (props) => {
   )
 }
 
+export const SeasonCard = (props) => {
+  const getId = localStorage.getItem("clickItem")
+  const setSeasonNum = () => {localStorage.setItem('clickSeason', JSON.stringify(props.data.season_number))}
+  console.log(props.data);
+  return (
+    <div className='px-2 flex flex-row'>
+      <div className="flex items-center">
+        <img
+          className='w-28 shadow-zinc-700 shadow-lg 2xs:w-36 xs:w-44 sm:w-52 md:w-44 lg:w-52 xl:w-60 2xl:w-72'
+          src={`https://image.tmdb.org/t/p/original${props.data.poster_path}`}
+          alt={props.data.id}
+        />
+      </div>
+      <div className="p-2 bg-zinc-800 flex flex-col justify-between w-full gap-2">
+        <div className="flex justify-between">
+          <div className="flex flex-col">
+            <p className="text-sm font-black lg:text-base">{props.data.name}</p>
+            <p className='text-sm font-light lg:text-base'>{props.data.air_date}</p>
+            <p className='text-sm font-light lg:text-base'>{props.data.episode_count} Episodes</p>
+          </div>
+          <div className="">
+            <RatingCircle rating={Number(props.data.vote_average).toFixed(1)} />
+          </div>
+        </div>
+        <a href={`/tv/${getId}/season/${props.data.season_number}`}>
+          <WatchButton
+            icon={<PlayArrowRoundedIcon />}
+            displayText="WATCH NOW"
+            buttonClick={setSeasonNum}
+          />
+        </a>
+      </div>
+    </div>
+  )
+}
+
 

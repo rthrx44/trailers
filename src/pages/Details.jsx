@@ -5,8 +5,9 @@ import Loading from '../components/Loading';
 import { RatingCircle } from '../components/utils/RatingCircle';
 import { MovieCast, TvCast } from '../components/Cast';
 import { SimilarMovie, SimilarTv } from '../components/Similar';
+import { Seasons } from '../components/utils/Seasons';
 
-export const MovieDetails = ({showLoading}) => {
+export const MovieDetails = ({showLoading}) => {  
   const [movieDetails, setMovieDetails] = useState({})
   const getId = localStorage.getItem("clickItem")
 
@@ -71,7 +72,7 @@ export const MovieDetails = ({showLoading}) => {
                   <b className='font-extrabold'>
                   {movieDetails.genres &&
                     movieDetails.genres.slice(0, 2).map((genre, idx) => (
-                      <span key={idx} className='pt-[0.05rem] pb-1 px-2 mx-1 cursor-pointer outline outline-1 outline-red-700 rounded-2xl text-white tracking-widest text-xs xs:text-sm md:text-xs lg:text-sm'>
+                      <span key={idx} className='py-1 px-2 mx-1 cursor-pointer outline outline-1 outline-red-700 rounded-2xl text-white tracking-widest text-xs xs:text-sm md:text-xs lg:text-sm'>
                         {genre.name}
                       </span>
                     ))}
@@ -125,7 +126,6 @@ export const TvDetails = ({showLoading}) => {
 
   fetchTvDetails.current = async() => {
     const { data } = await axios.get(`${BASE_URL}/tv/${getId}`, options)
-    console.log(data);
     setTvDetails(data)
   }
 
@@ -136,7 +136,7 @@ export const TvDetails = ({showLoading}) => {
   return (
     <>
       {showLoading && <Loading/>}
-      <section className='px-4 container mx-auto'>
+      {/* <section className='px-4 container mx-auto'>
         <div className="flex flex-col mt-4 mb-8 xl:mb-12 sm:px-10 md:p-12 lg:px-16 xl:px-20 gap-4">
           <p className='text-gray-500 text-center tracking-widest font-bold text-xs'>If current server doesn't work please try other servers below.</p>
           <iframe
@@ -146,6 +146,9 @@ export const TvDetails = ({showLoading}) => {
             title='Video Container'
           ></iframe>
         </div>
+      </section> */}
+      <section className='container mx-auto'>
+        <Seasons/>
       </section>
       <section className='relative container mx-auto'>
         <img 
@@ -172,7 +175,7 @@ export const TvDetails = ({showLoading}) => {
                   <b className='font-extrabold'>
                   {tvDetails.genres &&
                     tvDetails.genres.slice(0, 2).map((genre, idx) => (
-                      <span key={idx} className='pt-[0.05rem] pb-1 px-2 mx-1 cursor-pointer outline outline-1 outline-red-700 rounded-2xl text-white tracking-widest text-xs xs:text-sm md:text-xs lg:text-sm'>
+                      <span key={idx} className='py-1 px-2 mx-1 cursor-pointer outline outline-1 outline-red-700 rounded-2xl text-white tracking-widest text-xs xs:text-sm md:text-xs lg:text-sm'>
                         {genre.name}
                       </span>
                     ))}
