@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import Loading from './components/Loading';
 import { MovieDetails, TvDetails } from './pages/Details';
 import { SeasonDetails } from './pages/SeasonDetails';
+import { EpisodesDetails } from './pages/EpisodesDetails';
 
 function App() {
   const [showLoading, setShowLoading] = useState(true);
@@ -23,10 +24,11 @@ function App() {
       <BrowserRouter>
         <Navbar/>
           <Routes>
-            <Route path='/' element={<Landing showLoading={showLoading}/>}/>
-            <Route path='/movie/:id' element={<MovieDetails showLoading={showLoading}/>}/>
-            <Route path='/tv/:id' element={<TvDetails showLoading={showLoading}/>}/>
-            <Route path='/tv/:id/season/:seasonNum' element={<SeasonDetails showLoading={showLoading}/>}/>
+            <Route path='/' element={<Landing/>}/>
+            <Route path='/movie/:id' element={<MovieDetails/>}/>
+            <Route path='/tv/:id' element={<TvDetails/>}/>
+            <Route path='/tv/:id/season/:seasonNum' element={<SeasonDetails/>}/>
+            <Route path='/tv/:id/season/:seasonNum/episode/:episodeNum' element={<EpisodesDetails/>}/>
           </Routes>
         <Footer/>
       </BrowserRouter>

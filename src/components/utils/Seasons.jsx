@@ -27,12 +27,15 @@ export const Seasons = () => {
     fetchTrendingTv.current();
   }, []);
   return (
-    <div className='grid sm:grid-cols-2 my-4'>
-      {tvSeasons.map((season, idx) => {
-        return <div key={idx} className='p-2'>
-          <SeasonCard data={season}/>
-        </div>
-      })}
-    </div>
+    <>
+      <h1 className='my-8 text-lg tracking-widest font-semibold mx-4 border-l-[0.3rem] border-red-700 pl-2 lg:text-xl xl:text-2xl'>SEASONS</h1>
+      <div className='grid md:grid-cols-2 my-4'>
+        {tvSeasons.map((season, idx) => {
+          return <div key={idx} className='mb-2 p-2'>
+            <SeasonCard data={season}/>
+          </div>
+        })}
+      </div>
+    </>
   )
 }

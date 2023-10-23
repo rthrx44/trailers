@@ -3,13 +3,20 @@ import axios from 'axios'
 import dayjs from 'dayjs'
 import { SimilarTv } from '../components/Similar';
 import { TvCast } from '../components/Cast';
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { FreeMode, Navigation } from 'swiper/modules';
+import "swiper/css";
+import "swiper/css/navigation"
+import "swiper/css/free-mode"
 import { EpisodeCard } from '../components/utils/Card';
 
-export const SeasonDetails = () => {
+export const EpisodesDetails = () => {
   const [seasonDetails, setSeasonDetails] = useState({})
   const [episodeDetails, setEpisodeDetails] = useState([])
   const getId = localStorage.getItem("clickItem")
   const getSeasonNum = localStorage.getItem("clickSeason")
+  const getEpisodeNum = localStorage.getItem("clickEpisode")
 
   const BASE_URL = "https://api.themoviedb.org/3"
   const AUTH_KEY = process.env.REACT_APP_AUTH_KEY
@@ -35,14 +42,38 @@ export const SeasonDetails = () => {
 
   return (
     <>
-      <section>
-        <h1 className='my-8 text-lg tracking-widest font-semibold mx-4 border-l-[0.3rem] border-red-700 pl-2 lg:text-xl xl:text-2xl'>EPISODES</h1>
-        <div className='grid 2xs:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 my-4'>
-          {episodeDetails.map((episode, idx) => {
-            return <div key={idx} className='mb-2 p-2'>
-              <EpisodeCard data={episode}/>
-            </div>
-          })}
+      <section className='px-4 container mx-auto'>
+        <div className="flex flex-col mt-4 mb-8 xl:mb-12 sm:px-10 md:p-12 lg:px-16 xl:px-20 gap-4">
+          <p className='text-gray-500 text-center tracking-widest font-bold text-xs'>If current server doesn't work please try other servers below.</p>
+          <iframe
+            className="w-full aspect-video"
+            src={`https://autoembed.to/tv/tmdb/${getId}-${getSeasonNum}-${getEpisodeNum}`}
+            allowFullScreen={true}
+            title='Video Container'
+          ></iframe>
+        </div>
+      </section>
+      <section className='container mx-auto'>
+        <div>
+          <Swiper 
+            modules={[FreeMode, Navigation]}
+            slidesPerView={2}
+            breakpoints={{
+              520: {slidesPerView: 3},
+              768: {slidesPerView: 4},
+              1024: {slidesPerView: 5},
+              1280: {slidesPerView: 6},
+              1536: {slidesPerView: 7},
+              }}
+            freeMode={true}
+            navigation
+          >
+            {episodeDetails.map((episode, idx) => (
+                <SwiperSlide key={idx} className="py-8 cursor-pointer">
+                  <EpisodeCard data={episode}/>
+                </SwiperSlide>
+              ))}
+          </Swiper>
         </div>
       </section>
       <section className='container mx-auto flex flex-col items-center mt-12 px-4 md:mt-0'>

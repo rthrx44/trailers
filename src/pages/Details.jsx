@@ -1,13 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react'
 import axios from 'axios';
 import dayjs from 'dayjs';
-import Loading from '../components/Loading';
 import { RatingCircle } from '../components/utils/RatingCircle';
 import { MovieCast, TvCast } from '../components/Cast';
 import { SimilarMovie, SimilarTv } from '../components/Similar';
 import { Seasons } from '../components/utils/Seasons';
 
-export const MovieDetails = ({showLoading}) => {  
+export const MovieDetails = () => {  
   const [movieDetails, setMovieDetails] = useState({})
   const getId = localStorage.getItem("clickItem")
 
@@ -35,7 +34,6 @@ export const MovieDetails = ({showLoading}) => {
 
   return (
     <>
-      {showLoading && <Loading/>}
       <section className='px-4 container mx-auto'>
         <div className="flex flex-col mt-4 mb-8 xl:mb-12 sm:px-10 md:p-12 lg:px-16 xl:px-20 gap-4">
           <p className='text-gray-500 text-center tracking-widest font-bold text-xs'>If current server doesn't work please try other servers below.</p>
@@ -108,7 +106,7 @@ export const MovieDetails = ({showLoading}) => {
   )
 }
 
-export const TvDetails = ({showLoading}) => {
+export const TvDetails = () => {
   const [tvDetails, setTvDetails] = useState({})
   const getId = localStorage.getItem("clickItem")
 
@@ -135,18 +133,6 @@ export const TvDetails = ({showLoading}) => {
 
   return (
     <>
-      {showLoading && <Loading/>}
-      {/* <section className='px-4 container mx-auto'>
-        <div className="flex flex-col mt-4 mb-8 xl:mb-12 sm:px-10 md:p-12 lg:px-16 xl:px-20 gap-4">
-          <p className='text-gray-500 text-center tracking-widest font-bold text-xs'>If current server doesn't work please try other servers below.</p>
-          <iframe
-            className="w-full aspect-video"
-            src={'https://autoembed.to/tv/tmdb/' + getId}
-            allowFullScreen={true}
-            title='Video Container'
-          ></iframe>
-        </div>
-      </section> */}
       <section className='container mx-auto'>
         <Seasons/>
       </section>
@@ -168,7 +154,7 @@ export const TvDetails = ({showLoading}) => {
           </div>
           <div className='order-2 col-span-2 md:grid md:my-12 lg:my-20 xl:my-32'>
             <div className='flex flex-col justify-center lg:pr-10 xl:pr-20 select-none gap-4 px-4 '>
-              <h1 className='mt-4 text-white text-center text-2xl font-extrabold 2xs:text-3xl xs:text-4xl sm:text-[2.5rem] md:text-2xl lg:text-3xl xl:text-4xl'>{tvDetails.original_name}</h1>
+              <h1 className='mt-4 text-white text-center text-2xl font-extrabold 2xs:text-3xl xs:text-4xl sm:text-[2.5rem] md:text-2xl lg:text-3xl xl:text-4xl'>{tvDetails.name}</h1>
               <div className='order-2 flex justify-center items-center gap-1 pb-2 '>
                 <RatingCircle rating={Number(tvDetails.vote_average).toFixed(1)}/>
                 <p>

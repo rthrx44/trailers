@@ -3,7 +3,6 @@ import dayjs from "dayjs";
 import { RatingCircle } from "./RatingCircle";
 import { WatchButton, ViewInfo } from "../Buttons";
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
-
 import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded';
 
 export const MovieCard = (props) => {
@@ -109,24 +108,23 @@ export const CastCard = (props) => {
 export const SeasonCard = (props) => {
   const getId = localStorage.getItem("clickItem")
   const setSeasonNum = () => {localStorage.setItem('clickSeason', JSON.stringify(props.data.season_number))}
-  console.log(props.data);
   return (
     <div className='px-2 flex flex-row'>
       <div className="flex items-center">
         <img
-          className='w-28 shadow-zinc-700 shadow-lg 2xs:w-36 xs:w-44 sm:w-52 md:w-44 lg:w-52 xl:w-60 2xl:w-72'
+          className='w-28 shadow-zinc-700 shadow-lg 2xs:w-36 xs:w-44 md:w-44 xl:w-52'
           src={`https://image.tmdb.org/t/p/original${props.data.poster_path}`}
           alt={props.data.id}
         />
       </div>
       <div className="p-2 bg-zinc-800 flex flex-col justify-between w-full gap-2">
-        <div className="flex justify-between">
-          <div className="flex flex-col">
-            <p className="text-sm font-black lg:text-base">{props.data.name}</p>
-            <p className='text-sm font-light lg:text-base'>{props.data.air_date}</p>
-            <p className='text-sm font-light lg:text-base'>{props.data.episode_count} Episodes</p>
+        <div className="flex justify-between gap-4">
+          <div className="flex flex-col text-white tracking-widest text-xs xs:text-sm md:text-xs lg:text-sm xl:text-lg">
+            <p className="font-black">{props.data.name}</p>
+            <p className='font-light'>{dayjs(props.data.air_date).format("MMMM DD, YYYY")}</p>
+            <p className='font-light'>{props.data.episode_count} Episodes</p>
           </div>
-          <div className="">
+          <div>
             <RatingCircle rating={Number(props.data.vote_average).toFixed(1)} />
           </div>
         </div>
@@ -138,6 +136,22 @@ export const SeasonCard = (props) => {
           />
         </a>
       </div>
+    </div>
+  )
+}
+
+export const EpisodeCard = (props) => {
+  const getId = localStorage.getItem("clickItem")
+  const setEpisodeNum = () => {localStorage.setItem('clickEpisode', JSON.stringify(props.data.episode_number))}
+  return (
+    <div className='flex flex-col px-2'>
+      <a href={`/tv/${getId}/season/${props.data.season_number}/episode/${props.data.episode_number}`}>
+          <WatchButton
+            icon={<PlayArrowRoundedIcon />}
+            displayText={`${props.data.season_number}x${props.data.episode_number} : ${props.data.name}`}
+            buttonClick={setEpisodeNum}
+          />
+        </a>
     </div>
   )
 }

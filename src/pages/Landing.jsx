@@ -3,13 +3,11 @@ import { HeroBackdrop } from '../components/HeroBackdrop';
 import { TrendingMovie, TrendingTv } from '../components/Trending';
 import { PopularMovie, PopularTv } from '../components/Popular';
 import { TopRatedMovie, TopRatedTv } from '../components/TopRated';
-import Loading from '../components/Loading';
 
-function Landing({showLoading}) {
+function Landing() {
 
   return (
     <>
-    {showLoading && <Loading/>}
     <div>
       <section>
         <HeroBackdrop/>
