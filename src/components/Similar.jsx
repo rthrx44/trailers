@@ -7,7 +7,7 @@ import "swiper/css";
 import "swiper/css/navigation"
 import "swiper/css/free-mode"
 
-import { Card } from "./utils/Card";
+import { MovieCard, TvCard } from "./utils/Card";
 
 export const SimilarMovie = () => {
   const [similarMovies, setSimilarMovies] = useState([]);
@@ -52,7 +52,7 @@ export const SimilarMovie = () => {
       >
         {similarMovies.map((movie, idx) => (
             <SwiperSlide key={idx} className="py-8 cursor-pointer">
-              <Card data={movie}/>
+              <MovieCard data={movie}/>
             </SwiperSlide>
           ))}
       </Swiper>
@@ -103,7 +103,7 @@ export const SimilarTv = () => {
       >
         {similarTvShows.map((tv, idx) => (
             <SwiperSlide key={idx} className="py-8 cursor-pointer">
-              <Card data={tv}/>
+              <TvCard data={tv}/>
             </SwiperSlide>
           ))}
       </Swiper>

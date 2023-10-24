@@ -39,7 +39,7 @@ export const TvDetails = () => {
       <section className='relative container mx-auto'>
         <img 
           className='md:hidden w-full mx-auto grayscale opacity-25'
-          src={`https://image.tmdb.org/t/p/original${tvDetails.poster_path}`} 
+          src={`https://image.tmdb.org/t/p/w500${tvDetails.poster_path}`} 
           alt={tvDetails.id} />
         <img 
           className='hidden md:flex grayscale opacity-25'

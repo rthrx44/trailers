@@ -15,7 +15,7 @@ function Footer () {
         </div>
         <div className="">
           <ul className="flex flex-col items-center gap-6 text-xs tracking-widest lg:text-sm xl:text-base text-[#fff] md:gap-8">
-            <li className="hover:text-red-700 cursor-pointer font-semibold transition-all ease-in-out">HOME</li>
+            <li className="hover:text-red-700 cursor-pointer font-semibold transition-all ease-in-out"><a href="/">HOME</a></li>
             <li className="hover:text-red-700 cursor-pointer font-semibold transition-all ease-in-out">BROWSE</li>
             <li className="hover:text-red-700 cursor-pointer font-semibold transition-all ease-in-out"> MOVIES</li>
             <li className="hover:text-red-700 cursor-pointer font-semibold transition-all ease-in-out">TV SHOWS</li>

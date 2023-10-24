@@ -1,6 +1,7 @@
 import React from 'react'
 import Trailers from './assets/Trailers.png' 
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
+import SearchIcon from '@mui/icons-material/Search';
 
 function Navbar () {
   return (
@@ -17,7 +18,10 @@ function Navbar () {
             </div>
             <div className='flex items-center md:gap-6'>
               <form className='tracking-widest relative'>
-                <input type="text" placeholder='SEARCH' className='pl-2 py-1 w-32 rounded-sm text-xs font-semibold bg-[#3b3b3b] outline-none focus:outline-1 focus:outline-red-700 transition-all ease-in-out lg:text-sm lg:w-48 xl:text-base xl:w-72' />
+                <input type="text" placeholder='SEARCH' className='pl-2 pr-7 py-1 w-32 rounded-sm text-xs font-semibold bg-[#3b3b3b] outline-none focus:outline-1 focus:outline-red-700 transition-all ease-in-out lg:text-sm lg:w-48 xl:text-base xl:w-72' />
+                <div className='absolute top-0 right-0 h-full px-1 flex items-center'>
+                  <SearchIcon sx={{ fontSize: 20 }}/> 
+                </div>
               </form>
               <label htmlFor="my-drawer-4" className="drawer-button btn btn-primary bg-transparent border-none outline-none hover:bg-transparent hover:text-red-700 active:text-red-700 md:hidden"><MenuOpenIcon/></label>            
               <ul className='gap-6 text-xs tracking-widest hidden md:flex md:items-center md:pr-4 lg:text-sm xl:text-base text-[#fff]'>

@@ -46,7 +46,7 @@ export const MovieDetails = () => {
       <section className='relative container mx-auto'>
         <img 
           className='md:hidden w-full mx-auto grayscale opacity-25'
-          src={`https://image.tmdb.org/t/p/original${movieDetails.poster_path}`} 
+          src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`} 
           alt={movieDetails.id} />
         <img 
           className='hidden md:flex grayscale opacity-25'
