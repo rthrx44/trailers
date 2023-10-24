@@ -47,7 +47,7 @@ export const EpisodesDetails = () => {
           <p className='text-gray-500 text-center tracking-widest font-bold text-xs'>If current server doesn't work please try other servers below.</p>
           <iframe
             className="w-full aspect-video"
-            src={`https://autoembed.to/tv/tmdb/${getId}-${getSeasonNum}-${getEpisodeNum}`}
+            src={`https://autoembed.to/tv/tmdb/${getId}-${getSeasonNum}-${getEpisodeNum}?server=2`}
             allowFullScreen={true}
             title='Video Container'
           ></iframe>
