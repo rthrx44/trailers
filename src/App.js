@@ -20,6 +20,34 @@ function App() {
       setShowLoading(false);
     }, 2500);
   });
+
+  useEffect(() => {
+    const images = document.querySelectorAll(".lazy");
+
+    function preloadImage (img) {
+      const src = img.getAttribute('data-src');
+      if (!src) {
+        return
+      }
+      img.src = src
+    }
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return
+        } else {
+          preloadImage(entry.target);
+          observer.unobserve(entry.target);
+          entry.target.classList.remove('loader')
+          entry.target.classList.add('loaded')
+        }
+      });
+    });
+
+    images.forEach(image => (observer.observe(image)))
+  });
+
   return (
     <>        
       <BrowserRouter>

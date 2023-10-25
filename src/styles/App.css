@@ -22,6 +22,15 @@ body, html {
   stroke: transparent !important;
 }
 
+.loader {
+  filter: blur(20px) grayscale(100%);
+}
+
+.loaded {
+  filter: blur(0) grayscale(0);
+  transition: 0.8s ease-in-out;
+}
+
 /*? Scrollbar */
 body::-webkit-scrollbar, .overview::-webkit-scrollbar {
   width: 4px;
