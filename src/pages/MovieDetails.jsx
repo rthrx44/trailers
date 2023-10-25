@@ -50,14 +50,24 @@ export const MovieDetails = () => {
             src='https://fakeimg.pl/640x960?text=No+Image'
             data-src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`} 
             alt={movieDetails.id}
-          /> : <img src='https://fakeimg.pl/640x960?text=No+Image' alt={movieDetails.id}/>}
+          /> : 
+          <img 
+            className='lazy loader md:hidden w-full mx-auto !grayscale !opacity-25'
+            src='https://fakeimg.pl/640x960?text=No+Image' 
+            alt={movieDetails.id}
+          />}
         {movieDetails.poster_path ? 
           <img 
             className='lazy loader hidden md:flex !grayscale !opacity-25'
             src='https://fakeimg.pl/1536x864?text=No+Image'
             data-src={`https://image.tmdb.org/t/p/original${movieDetails.backdrop_path}`} 
             alt={movieDetails.id}
-          /> : <img src='https://fakeimg.pl/1536x864?text=No+Image' alt={movieDetails.id}/>}
+          /> : 
+          <img 
+            className='lazy loader hidden md:flex !grayscale !opacity-25'
+            src='https://fakeimg.pl/1536x864?text=No+Image' 
+            alt={movieDetails.id}
+          />}
         <div className='absolute top-0 w-full h-full md:grid md:grid-cols-3 bg-gradient-to-t from-[#141414] from-25% md:from-35%'>
           <div className='order-1 flex items-center justify-center mt-12 md:mt-0'>
             {movieDetails.poster_path ? 
@@ -66,7 +76,12 @@ export const MovieDetails = () => {
                 src='https://fakeimg.pl/288x432?text=No+Image'
                 data-src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`}
                 alt={movieDetails.id}
-              /> : <img src='https://fakeimg.pl/288x432?text=No+Image' alt={movieDetails.id}/>}
+              /> : 
+              <img 
+                className='lazy loader w-28 shadow-zinc-700 shadow-lg 2xs:w-36 xs:w-44 sm:w-52 md:w-44 lg:w-52 xl:w-60 2xl:w-72' 
+                src='https://fakeimg.pl/288x432?text=No+Image' 
+                alt={movieDetails.id}
+              />}
           </div>
           <div className='order-2 col-span-2 md:grid md:my-12 lg:my-20 xl:my-32'>
             <div className='flex flex-col justify-center lg:pr-10 xl:pr-20 select-none gap-4 px-4 '>

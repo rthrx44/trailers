@@ -9,42 +9,28 @@ function Landing({showLoading}) {
 
   return (
     <>
-    {showLoading && <Loading/>}
-    <div>
+      {showLoading && <Loading/>}
       <section>
         <HeroBackdrop/>
       </section>
-      <section className='mt-8 flex flex-col gap-8'>
-        <div className='2xl:container 2xl:mx-auto'>
-          <h1 className='text-lg tracking-widest font-semibold mx-4 border-l-[0.3rem] border-red-700 pl-2 lg:text-xl xl:text-2xl'>TOP 10 TRENDING MOVIE</h1>
-          <TrendingMovie/>
-        </div>
-        <div className='2xl:container 2xl:mx-auto'>
-          <h1 className='text-lg tracking-widest font-semibold mx-4 border-l-[0.3rem] border-red-700 pl-2 lg:text-xl xl:text-2xl'>TOP 10 TRENDING TV SHOWS</h1>
-          <TrendingTv/>
-        </div>
+      <section className='mt-8 flex flex-col gap-8 2xl:container 2xl:mx-auto'>
+        <h1 className='text-lg tracking-widest font-semibold mx-4 border-l-[0.3rem] border-red-700 pl-2 lg:text-xl xl:text-2xl'>TOP 10 TRENDING MOVIE</h1>
+        <TrendingMovie/>
+        <h1 className='text-lg tracking-widest font-semibold mx-4 border-l-[0.3rem] border-red-700 pl-2 lg:text-xl xl:text-2xl'>TOP 10 TRENDING TV SHOWS</h1>
+        <TrendingTv/>
       </section>
-      <section className='mt-8 flex flex-col gap-8'>
-      <div className='2xl:container 2xl:mx-auto'>
-          <h1 className='text-lg tracking-widest font-semibold mx-4 border-l-[0.3rem] border-red-700 pl-2 lg:text-xl xl:text-2xl'>POPULAR MOVIE</h1>
-          <PopularMovie/>
-        </div>
-        <div className='2xl:container 2xl:mx-auto'>
-          <h1 className='text-lg tracking-widest font-semibold mx-4 border-l-[0.3rem] border-red-700 pl-2 lg:text-xl xl:text-2xl'>POPULAR TV SHOWS</h1>
-          <PopularTv/>
-        </div>
+      <section className='mt-8 flex flex-col gap-8 2xl:container 2xl:mx-auto'>
+        <h1 className='text-lg tracking-widest font-semibold mx-4 border-l-[0.3rem] border-red-700 pl-2 lg:text-xl xl:text-2xl'>POPULAR MOVIE</h1>
+        <PopularMovie/>
+        <h1 className='text-lg tracking-widest font-semibold mx-4 border-l-[0.3rem] border-red-700 pl-2 lg:text-xl xl:text-2xl'>POPULAR TV SHOWS</h1>
+        <PopularTv/>
       </section>
-      <section className='mt-8 flex flex-col gap-8'>
-      <div className='2xl:container 2xl:mx-auto'>
-          <h1 className='text-lg tracking-widest font-semibold mx-4 border-l-[0.3rem] border-red-700 pl-2 lg:text-xl xl:text-2xl'>TOP-RATED MOVIE</h1>
-          <TopRatedMovie/>
-        </div>
-        <div className='2xl:container 2xl:mx-auto'>
-          <h1 className='text-lg tracking-widest font-semibold mx-4 border-l-[0.3rem] border-red-700 pl-2 lg:text-xl xl:text-2xl'>TOP-RATED TV SHOWS</h1>
-          <TopRatedTv/>
-        </div>
+      <section className='mt-8 flex flex-col gap-8 2xl:container 2xl:mx-auto'>
+        <h1 className='text-lg tracking-widest font-semibold mx-4 border-l-[0.3rem] border-red-700 pl-2 lg:text-xl xl:text-2xl'>TOP-RATED MOVIE</h1>
+        <TopRatedMovie/>
+        <h1 className='text-lg tracking-widest font-semibold mx-4 border-l-[0.3rem] border-red-700 pl-2 lg:text-xl xl:text-2xl'>TOP-RATED TV SHOWS</h1>
+        <TopRatedTv/>
       </section>
-    </div>
     </>
   )
 }

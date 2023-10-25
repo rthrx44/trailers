@@ -18,7 +18,12 @@ export const SmallScreenHeroCard = (props) => {
           src='https://fakeimg.pl/639x959?text=No+Image'
           data-src={`https://image.tmdb.org/t/p/w500${props.data.poster_path}`}
           alt={props.data.id}
-        /> : <img src='https://fakeimg.pl/639x959?text=No+Image' alt={props.data.id}/>}
+        /> : 
+        <img 
+          className="lazy w-full" 
+          src='https://fakeimg.pl/639x959?text=No+Image' 
+          alt={props.data.id}
+        />}
       <div className="absolute top-0 w-full h-full text-center flex items-end px-4 bg-gradient-to-t from-[#141414] from-10%">
         <div className="flex flex-col justify-center pr-4 mb-16 xs:mb-40 gap-2">
           <h1 className="text-white text-3xl font-bold mb-2 xs:text-4xl">
@@ -59,7 +64,12 @@ export const LargeScreenHeroCard = (props) => {
           src='https://fakeimg.pl/1536x864?text=No+Image'
           data-src={`https://image.tmdb.org/t/p/original${props.data.backdrop_path}`}
           alt={props.data.id}
-        /> : <img src='https://fakeimg.pl/1536x864?text=No+Image' alt={props.data.id}/>}
+        /> : 
+        <img 
+          className="lazy w-full 2xl:container 2xl:mx-auto" 
+          src='https://fakeimg.pl/1536x864?text=No+Image' 
+          alt={props.data.id}
+        />}
       <div className="absolute top-0 w-full h-full grid grid-cols-2 bg-gradient-to-t from-[#141414] from-10%">
         <div className="order-1 flex items-center justify-center px-14 2xl:px-40">
           {props.data.poster_path ? 
@@ -68,7 +78,12 @@ export const LargeScreenHeroCard = (props) => {
               src='https://fakeimg.pl/352x528?text=No+Image'
               data-src={`https://image.tmdb.org/t/p/w500${props.data.poster_path}`}
               alt={props.data.id}
-            /> : <img src='https://fakeimg.pl/352x528?text=No+Image' alt={props.data.id}/>}
+            /> : 
+            <img 
+              className="lazy w-full shadow-zinc-700 shadow-lg sm:w-52 md:w-60 lg:w-72 xl:w-80 2xl:w-[22rem]"
+              src='https://fakeimg.pl/352x528?text=No+Image' 
+              alt={props.data.id}
+            />}
         </div>
         <div className="order-2 flex flex-col justify-center pr-6 lg:pr-10 xl:pr-20 select-none gap-2">
           <h1 className="text-white text-2xl font-extrabold pb-2 md:text-3xl lg:text-4xl xl:text-5xl truncate">
@@ -112,7 +127,12 @@ export const MovieCard = (props) => {
             src='https://fakeimg.pl/203x305?text=No+Image'
             data-src={`https://image.tmdb.org/t/p/w500${props.data.poster_path}`}
             alt={props.data.id}
-          /> : <img src='https://fakeimg.pl/203x305?text=No+Image' alt={props.data.id}/>}
+          /> : 
+          <img 
+            className="lazy loader bg-cover w-full mx-auto"
+            src='https://fakeimg.pl/203x305?text=No+Image' 
+            alt={props.data.id}
+          />}
       </div>
       <div className="p-2 bg-zinc-800 flex flex-col gap-2">
         <div className="grid grid-flow-col gap-4 justify-between items-center">
@@ -153,7 +173,12 @@ export const TvCard = (props) => {
             src='https://fakeimg.pl/203x305?text=No+Image'
             data-src={`https://image.tmdb.org/t/p/w500${props.data.poster_path}`}
             alt={props.data.id}
-          /> : <img src='https://fakeimg.pl/203x305?text=No+Image' alt={props.data.id}/>}
+          /> : 
+          <img 
+            className="lazy loader bg-cover w-full mx-auto"
+            src='https://fakeimg.pl/203x305?text=No+Image' 
+            alt={props.data.id}
+          />}
       </div>
       <div className="p-2 bg-zinc-800 flex flex-col gap-2">
         <div className="grid grid-flow-col gap-4 justify-between items-center">
@@ -182,7 +207,6 @@ export const TvCard = (props) => {
 };
 
 export const CastCard = (props) => {
-  console.log(props.data);
   return (
     <div className="px-2 flex flex-col">
       {props.data.profile_path ? 
@@ -191,7 +215,12 @@ export const CastCard = (props) => {
           src='https://fakeimg.pl/203x305?text=No+Image'
           data-src={`https://image.tmdb.org/t/p/w500${props.data.profile_path}`}
           alt={props.data.id}
-        /> : <img src='https://fakeimg.pl/203x305?text=No+Image' alt={props.data.id}/>}
+        /> : 
+        <img 
+          className="lazy loader w-full mx-auto"
+          src='https://fakeimg.pl/203x305?text=No+Image' 
+          alt={props.data.id}
+        />}
       <div className="p-2 bg-zinc-800 flex flex-col gap-2">
         <div className="flex">
           <div className="flex-col">
@@ -229,7 +258,12 @@ export const SeasonCard = (props) => {
             src='https://fakeimg.pl/161x243?text=No+Image'
             data-src={`https://image.tmdb.org/t/p/w500${props.data.poster_path}`}
             alt={props.data.id}
-          /> : <img src='https://fakeimg.pl/161x243?text=No+Image' alt={props.data.id}/>}
+          /> : 
+          <img 
+            className="lazy loader w-28 shadow-zinc-700 shadow-lg 2xs:w-36 xs:w-44 md:w-44 xl:w-52"
+            src='https://fakeimg.pl/161x243?text=No+Image' 
+            alt={props.data.id}
+          />}
       </div>
       <div className="p-2 bg-zinc-800 flex flex-col justify-between w-full gap-2">
         <div className="flex justify-between gap-4">

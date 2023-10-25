@@ -84,7 +84,12 @@ export const EpisodesDetails = () => {
               src='https://fakeimg.pl/286x429?text=No+Image'
               data-src={`https://image.tmdb.org/t/p/w500${seasonDetails.poster_path}`}
               alt={seasonDetails.id}
-            /> : <img src='https://fakeimg.pl/286x429?text=No+Image' alt={seasonDetails.id}/>}
+            /> : 
+            <img 
+              className='lazy loader w-28 shadow-zinc-700 shadow-lg 2xs:w-36 xs:w-44 sm:w-52 md:w-44 lg:w-52 xl:w-60 2xl:w-72'
+              src='https://fakeimg.pl/286x429?text=No+Image' 
+              alt={seasonDetails.id}
+            />}
         </div>
         <div className='text-center'>
           <p className='text-center'>{seasonDetails.name}</p>
