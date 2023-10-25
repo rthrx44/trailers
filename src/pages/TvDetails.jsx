@@ -1,12 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react'
 import axios from 'axios';
 import dayjs from 'dayjs';
+import Loading from '../components/Loading';
 import { RatingCircle } from '../components/utils/RatingCircle';
 import { TvCast } from '../components/Cast';
 import { SimilarTv } from '../components/Similar';
 import { Seasons } from '../components/utils/Seasons';
 
-export const TvDetails = () => {
+export const TvDetails = ({showLoading}) => {
   const [tvDetails, setTvDetails] = useState({})
   const getId = localStorage.getItem("clickItem")
 
@@ -33,6 +34,7 @@ export const TvDetails = () => {
 
   return (
     <>
+      {showLoading && <Loading/>}
       <section className='container mx-auto'>
         <Seasons/>
       </section>

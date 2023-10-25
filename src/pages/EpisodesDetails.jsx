@@ -20,7 +20,7 @@ export const EpisodesDetails = () => {
 
   const BASE_URL = "https://api.themoviedb.org/3"
   const AUTH_KEY = process.env.REACT_APP_AUTH_KEY
-  const fetchSeasonDetails = useRef(() => {})
+  const fetchEpisodeDetails = useRef(() => {})
 
   const options = {
     params: {language: 'en-US'},
@@ -30,14 +30,14 @@ export const EpisodesDetails = () => {
     }
   };
 
-  fetchSeasonDetails.current = async() => {
+  fetchEpisodeDetails.current = async() => {
     const { data } = await axios.get(`${BASE_URL}/tv/${getId}/season/${getSeasonNum}`, options)
     setSeasonDetails(data)
     setEpisodeDetails(data.episodes)
   }
 
   useEffect(() => {
-    fetchSeasonDetails.current();
+    fetchEpisodeDetails.current();
   }, []);
 
   return (

@@ -27,8 +27,8 @@ function Navbar () {
               <ul className='gap-6 text-xs tracking-widest hidden md:flex md:items-center md:pr-4 lg:text-sm xl:text-base text-[#fff]'>
                 <li className='hover:text-red-700 cursor-pointer font-semibold transition-all ease-in-out'><a href="/">HOME</a></li>
                 <li className='hover:text-red-700 cursor-pointer font-semibold transition-all ease-in-out'>BROWSE</li>
-                <li className='hover:text-red-700 cursor-pointer font-semibold transition-all ease-in-out'>MOVIES</li>
-                <li className='hover:text-red-700 cursor-pointer font-semibold transition-all ease-in-out'>TV SHOWS</li>
+                <li className='hover:text-red-700 cursor-pointer font-semibold transition-all ease-in-out'><a href="/discover/movie">MOVIES</a></li>
+                <li className='hover:text-red-700 cursor-pointer font-semibold transition-all ease-in-out'><a href="/discover/tv">TV SHOWS</a></li>
               </ul>
             </div>
           </header>
@@ -39,8 +39,8 @@ function Navbar () {
           <ul className="menu p-4 w-3/6 flex justify-center items-center h-full bg-[#141414] color-[#fff] text-xs gap-8 tracking-widest lg:text-sm xl:text-base text-[#fff]">
             <li className='cursor-pointer hover:text-red-700 font-semibold md:hidden'><a href="/">HOME</a></li>
             <li className='cursor-pointer hover:text-red-700 font-semibold md:hidden'>BROWSE</li>
-            <li className='cursor-pointer hover:text-red-700 font-semibold md:hidden'>MOVIES</li>
-            <li className='cursor-pointer hover:text-red-700 font-semibold md:hidden'>TV SHOWS</li>
+            <li className='cursor-pointer hover:text-red-700 font-semibold md:hidden'><a href="/discover/movie">MOVIES</a></li>
+            <li className='cursor-pointer hover:text-red-700 font-semibold md:hidden'><a href="/discover/tv">TV SHOWS</a></li>
           </ul>
         </div>
       </div>

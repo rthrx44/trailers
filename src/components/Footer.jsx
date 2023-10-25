@@ -17,8 +17,8 @@ function Footer () {
           <ul className="flex flex-col items-center gap-6 text-xs tracking-widest lg:text-sm xl:text-base text-[#fff] md:gap-8">
             <li className="hover:text-red-700 cursor-pointer font-semibold transition-all ease-in-out"><a href="/">HOME</a></li>
             <li className="hover:text-red-700 cursor-pointer font-semibold transition-all ease-in-out">BROWSE</li>
-            <li className="hover:text-red-700 cursor-pointer font-semibold transition-all ease-in-out"> MOVIES</li>
-            <li className="hover:text-red-700 cursor-pointer font-semibold transition-all ease-in-out">TV SHOWS</li>
+            <li className="hover:text-red-700 cursor-pointer font-semibold transition-all ease-in-out"><a href="/discover/movie">MOVIES</a></li>
+            <li className="hover:text-red-700 cursor-pointer font-semibold transition-all ease-in-out"><a href="/discover/tv">TV SHOWS</a></li>
           </ul>
         </div>
       </div>
@@ -28,8 +28,12 @@ function Footer () {
         <p className="text-center text-xs lg:text-sm xl:text-base text-[#fff] text-opacity-40"><b>"This product uses the TMDB API but is not endorsed or certified by TMDB."</b></p>
       </div>
     </div>
-    <div className="mt-10 px-4">
-      <p className="text-center text-xs text-[#fff] text-opacity-20"><b>Copyright © 2023. Designed and built by Ruther Dio.</b></p>
+    <div className="mt-24 px-4 text-center text-xs text-[#fff] text-opacity-20">
+      <p><b>DISCLAIMER</b></p>
+      <p><b>"This site does not store any files on its server. All contents are provided by non-affiliated third parties."</b></p>
+    </div>
+    <div className="mt-8 px-4 text-center text-xs text-[#fff] text-opacity-20">
+      <p><b>Copyright © 2023. Designed and built by Ruther Dio.</b></p>
     </div>
     </>
   );

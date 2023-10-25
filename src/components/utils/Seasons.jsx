@@ -8,7 +8,7 @@ export const Seasons = () => {
   
   const BASE_URL = "https://api.themoviedb.org/3"
   const AUTH_KEY = process.env.REACT_APP_AUTH_KEY
-  const fetchTrendingTv = useRef(() => {})
+  const fetchTvSeasons = useRef(() => {})
 
   const options = {
     params: {language: 'en-US'},
@@ -18,14 +18,15 @@ export const Seasons = () => {
     }
   };
 
-  fetchTrendingTv.current = async() => {
+  fetchTvSeasons.current = async() => {
     const { data: { seasons } } = await axios.get(`${BASE_URL}/tv/${getId}`, options)
     setTvSeasons(seasons)
   }
 
   useEffect(() => {
-    fetchTrendingTv.current();
+    fetchTvSeasons.current();
   }, []);
+  
   return (
     <>
       <h1 className='my-8 text-lg tracking-widest font-semibold mx-4 border-l-[0.3rem] border-red-700 pl-2 lg:text-xl xl:text-2xl'>SEASONS</h1>

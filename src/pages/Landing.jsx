@@ -1,13 +1,15 @@
 import React from 'react'
+import Loading from '../components/Loading'
 import { HeroBackdrop } from '../components/HeroBackdrop';
 import { TrendingMovie, TrendingTv } from '../components/Trending';
 import { PopularMovie, PopularTv } from '../components/Popular';
 import { TopRatedMovie, TopRatedTv } from '../components/TopRated';
 
-function Landing() {
+function Landing({showLoading}) {
 
   return (
     <>
+    {showLoading && <Loading/>}
     <div>
       <section>
         <HeroBackdrop/>

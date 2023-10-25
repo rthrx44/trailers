@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from 'swiper/modules';
 import "swiper/css";
 import "swiper/css/autoplay"
+
 import { LargeScreenHeroCard, SmallScreenHeroCard } from './utils/Card';
 
 export const HeroBackdrop = () => {
@@ -12,7 +13,7 @@ export const HeroBackdrop = () => {
 
   const BASE_URL = "https://api.themoviedb.org/3"
   const AUTH_KEY = process.env.REACT_APP_AUTH_KEY
-  const discoverMovie = useRef(() => {})
+  const fetchMoviesBackdrop = useRef(() => {})
 
   const options = {
     params: {language: 'en-US'},
@@ -22,13 +23,13 @@ export const HeroBackdrop = () => {
     }
   };
 
-  discoverMovie.current = async () => {
+  fetchMoviesBackdrop.current = async () => {
     const { data: {results} } = await axios.get(`${BASE_URL}/trending/all/day`, options)
     setMoviesBackdrop(results)
   }
 
   useEffect(() => {
-    discoverMovie.current()
+    fetchMoviesBackdrop.current()
   }, []);
 
   return (
