@@ -14,13 +14,13 @@ export const SmallScreenHeroCard = (props) => {
     <>
       {props.data.poster_path ? 
         <img
-          className="lazy w-full"
+          className="lazy w-full h-auto"
           src='https://fakeimg.pl/639x959?text=No+Image'
           data-src={`https://image.tmdb.org/t/p/w500${props.data.poster_path}`}
           alt={props.data.id}
         /> : 
         <img 
-          className="lazy w-full" 
+          className="lazy w-full h-auto" 
           src='https://fakeimg.pl/639x959?text=No+Image' 
           alt={props.data.id}
         />}
@@ -60,13 +60,13 @@ export const LargeScreenHeroCard = (props) => {
     <>
       {props.data.backdrop_path ? 
         <img
-          className="lazy w-full 2xl:container 2xl:mx-auto"
+          className="lazy w-full h-auto 2xl:container 2xl:mx-auto"
           src='https://fakeimg.pl/1536x864?text=No+Image'
           data-src={`https://image.tmdb.org/t/p/original${props.data.backdrop_path}`}
           alt={props.data.id}
         /> : 
         <img 
-          className="lazy w-full 2xl:container 2xl:mx-auto" 
+          className="lazy w-full h-auto 2xl:container 2xl:mx-auto" 
           src='https://fakeimg.pl/1536x864?text=No+Image' 
           alt={props.data.id}
         />}
@@ -74,13 +74,13 @@ export const LargeScreenHeroCard = (props) => {
         <div className="order-1 flex items-center justify-center px-14 2xl:px-40">
           {props.data.poster_path ? 
             <img
-              className="lazy w-full shadow-zinc-700 shadow-lg sm:w-52 md:w-60 lg:w-72 xl:w-80 2xl:w-[22rem]"
+              className="lazy w-full h-auto shadow-zinc-700 shadow-lg sm:w-52 md:w-60 lg:w-72 xl:w-80 2xl:w-[22rem]"
               src='https://fakeimg.pl/352x528?text=No+Image'
               data-src={`https://image.tmdb.org/t/p/w500${props.data.poster_path}`}
               alt={props.data.id}
             /> : 
             <img 
-              className="lazy w-full shadow-zinc-700 shadow-lg sm:w-52 md:w-60 lg:w-72 xl:w-80 2xl:w-[22rem]"
+              className="lazy w-full h-auto shadow-zinc-700 shadow-lg sm:w-52 md:w-60 lg:w-72 xl:w-80 2xl:w-[22rem]"
               src='https://fakeimg.pl/352x528?text=No+Image' 
               alt={props.data.id}
             />}
@@ -120,17 +120,60 @@ export const MovieCard = (props) => {
   };
   return (
     <div className="px-2 group hover:!scale-105 duration-300 z-50">
-      <div className="relative">
+      <div>
         {props.data.poster_path ? 
           <img
-            className="lazy loader bg-cover w-full mx-auto"
+            className="lazy loader bg-cover w-full h-auto mx-auto"
             src='https://fakeimg.pl/203x305?text=No+Image'
             data-src={`https://image.tmdb.org/t/p/w500${props.data.poster_path}`}
             alt={props.data.id}
           /> : 
           <img 
-            className="lazy loader bg-cover w-full mx-auto"
-            src='https://fakeimg.pl/203x305?text=No+Image' 
+            className="lazy loader bg-cover w-full h-auto mx-auto"
+            src='https://fakeimg.pl/203x305?text=No+Image'
+            alt={props.data.id}
+          />}
+      </div>
+      <div className="p-2 bg-zinc-800 flex flex-col gap-2">
+        <div className="grid grid-flow-col gap-4 justify-between items-center">
+          <div className="flex-col order-1 truncate">
+            <p className="text-sm font-semibold lg:text-base truncate">
+              {props.data.title || props.data.name}
+            </p>
+            <p className="text-xs font-semibold lg:text-sm xl:text-base">
+              {dayjs(props.data.release_date).format("YYYY")}
+            </p>
+          </div>
+          <div className="order-2">
+            <RatingCircle rating={Number(props.data.vote_average).toFixed(1)} />
+          </div>
+        </div>
+        <a href={`/movie/${props.data.id}`}>
+          <WatchButton
+            icon={<PlayArrowRoundedIcon />}
+            displayText="WATCH NOW"
+            buttonClick={setId}
+          />
+        </a>
+      </div>
+    </div>
+  );
+};
+
+export const DiscoverMoviesCard = (props) => {
+  const setId = () => {localStorage.setItem("clickItem", JSON.stringify(props.data.id))};
+  return (
+    <div className="px-2 group hover:!scale-105 duration-300 z-50">
+      <div>
+        {props.data.poster_path ? 
+          <img
+            className="lazy loader bg-cover w-full h-auto mx-auto"
+            src={`https://image.tmdb.org/t/p/w500${props.data.poster_path}`}
+            alt={props.data.id}
+          /> : 
+          <img 
+            className="lazy loader bg-cover w-full h-auto mx-auto"
+            src='https://fakeimg.pl/203x305?text=No+Image'
             alt={props.data.id}
           />}
       </div>
@@ -169,14 +212,57 @@ export const TvCard = (props) => {
       <div className="relative">
         {props.data.poster_path ? 
           <img
-            className="lazy loader bg-cover w-full mx-auto"
+            className="lazy loader bg-cover w-full h-auto mx-auto"
             src='https://fakeimg.pl/203x305?text=No+Image'
             data-src={`https://image.tmdb.org/t/p/w500${props.data.poster_path}`}
             alt={props.data.id}
           /> : 
           <img 
-            className="lazy loader bg-cover w-full mx-auto"
+            className="lazy loader bg-cover w-full h-auto mx-auto"
             src='https://fakeimg.pl/203x305?text=No+Image' 
+            alt={props.data.id}
+          />}
+      </div>
+      <div className="p-2 bg-zinc-800 flex flex-col gap-2">
+        <div className="grid grid-flow-col gap-4 justify-between items-center">
+          <div className="flex-col order-1 truncate">
+            <p className="text-sm font-semibold lg:text-base truncate">
+              {props.data.title || props.data.name}
+            </p>
+            <p className="text-xs font-semibold lg:text-sm xl:text-base">
+              {dayjs(props.data.release_date).format("YYYY")}
+            </p>
+          </div>
+          <div className="order-2">
+            <RatingCircle rating={Number(props.data.vote_average).toFixed(1)} />
+          </div>
+        </div>
+        <a href={`/tv/${props.data.id}`}>
+          <WatchButton
+            icon={<PlayArrowRoundedIcon />}
+            displayText="WATCH NOW"
+            buttonClick={setId}
+          />
+        </a>
+      </div>
+    </div>
+  );
+};
+
+export const DiscoverTvShowsCard = (props) => {
+  const setId = () => {localStorage.setItem("clickItem", JSON.stringify(props.data.id))};
+  return (
+    <div className="px-2 group hover:!scale-105 duration-300 z-50">
+      <div>
+        {props.data.poster_path ? 
+          <img
+            className="lazy loader bg-cover w-full h-auto mx-auto"
+            src={`https://image.tmdb.org/t/p/w500${props.data.poster_path}`}
+            alt={props.data.id}
+          /> : 
+          <img 
+            className="lazy loader bg-cover w-full h-auto mx-auto"
+            src='https://fakeimg.pl/203x305?text=No+Image'
             alt={props.data.id}
           />}
       </div>
@@ -211,13 +297,13 @@ export const CastCard = (props) => {
     <div className="px-2 flex flex-col">
       {props.data.profile_path ? 
         <img
-          className="lazy loader w-full mx-auto"
+          className="lazy loader w-full h-auto mx-auto"
           src='https://fakeimg.pl/203x305?text=No+Image'
           data-src={`https://image.tmdb.org/t/p/w500${props.data.profile_path}`}
           alt={props.data.id}
         /> : 
         <img 
-          className="lazy loader w-full mx-auto"
+          className="lazy loader w-full h-auto mx-auto"
           src='https://fakeimg.pl/203x305?text=No+Image' 
           alt={props.data.id}
         />}
@@ -254,13 +340,13 @@ export const SeasonCard = (props) => {
       <div className="flex items-center">
         {props.data.poster_path ? 
           <img
-            className="lazy loader w-28 shadow-zinc-700 shadow-lg 2xs:w-36 xs:w-44 md:w-44 xl:w-52"
+            className="lazy loader w-28 h-auto shadow-zinc-700 shadow-lg 2xs:w-36 xs:w-44 md:w-44 xl:w-52"
             src='https://fakeimg.pl/161x243?text=No+Image'
             data-src={`https://image.tmdb.org/t/p/w500${props.data.poster_path}`}
             alt={props.data.id}
           /> : 
           <img 
-            className="lazy loader w-28 shadow-zinc-700 shadow-lg 2xs:w-36 xs:w-44 md:w-44 xl:w-52"
+            className="lazy loader w-28 h-auto shadow-zinc-700 shadow-lg 2xs:w-36 xs:w-44 md:w-44 xl:w-52"
             src='https://fakeimg.pl/161x243?text=No+Image' 
             alt={props.data.id}
           />}

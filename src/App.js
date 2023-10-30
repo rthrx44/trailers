@@ -27,7 +27,7 @@ function App() {
     function preloadImage (img) {
       const src = img.getAttribute('data-src');
       if (!src) {
-        return
+        return 
       }
       img.src = src
     }
@@ -54,7 +54,7 @@ function App() {
         <Navbar/>
           <Routes>
             <Route path='/' element={<Landing showLoading={showLoading}/>}/>
-            <Route path='/discover/movie' element={<Movies showLoading={showLoading}/>}/>
+            <Route path='/discover/movie/' element={<Movies showLoading={showLoading}/>}/>
             <Route path='/discover/tv' element={<TvShows showLoading={showLoading}/>}/>
             <Route path='/movie/:id' element={<MovieDetails/>}/>
             <Route path='/tv/:id' element={<TvDetails showLoading={showLoading}/>}/>

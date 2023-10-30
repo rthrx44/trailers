@@ -46,25 +46,25 @@ export const MovieDetails = () => {
       <section className='relative container mx-auto'>
         {movieDetails.poster_path ? 
           <img 
-            className='lazy loader md:hidden w-full mx-auto !grayscale !opacity-25'
+            className='lazy loader md:hidden w-full h-auto mx-auto !grayscale !opacity-25'
             src='https://fakeimg.pl/640x960?text=No+Image'
             data-src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`} 
             alt={movieDetails.id}
           /> : 
           <img 
-            className='lazy loader md:hidden w-full mx-auto !grayscale !opacity-25'
+            className='lazy loader md:hidden w-full h-auto mx-auto !grayscale !opacity-25'
             src='https://fakeimg.pl/640x960?text=No+Image' 
             alt={movieDetails.id}
           />}
-        {movieDetails.poster_path ? 
+        {movieDetails.backdrop_path ? 
           <img 
-            className='lazy loader hidden md:flex !grayscale !opacity-25'
+            className='lazy loader w-full h-auto hidden md:flex !grayscale !opacity-25'
             src='https://fakeimg.pl/1536x864?text=No+Image'
             data-src={`https://image.tmdb.org/t/p/original${movieDetails.backdrop_path}`} 
             alt={movieDetails.id}
           /> : 
           <img 
-            className='lazy loader hidden md:flex !grayscale !opacity-25'
+            className='lazy loader w-full h-auto hidden md:flex !grayscale !opacity-25'
             src='https://fakeimg.pl/1536x864?text=No+Image' 
             alt={movieDetails.id}
           />}
@@ -72,13 +72,13 @@ export const MovieDetails = () => {
           <div className='order-1 flex items-center justify-center mt-12 md:mt-0'>
             {movieDetails.poster_path ? 
               <img 
-                className='lazy loader w-28 shadow-zinc-700 shadow-lg 2xs:w-36 xs:w-44 sm:w-52 md:w-44 lg:w-52 xl:w-60 2xl:w-72'
+                className='lazy loader w-28 h-auto shadow-zinc-700 shadow-lg 2xs:w-36 xs:w-44 sm:w-52 md:w-44 lg:w-52 xl:w-60 2xl:w-72'
                 src='https://fakeimg.pl/288x432?text=No+Image'
                 data-src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`}
                 alt={movieDetails.id}
               /> : 
               <img 
-                className='lazy loader w-28 shadow-zinc-700 shadow-lg 2xs:w-36 xs:w-44 sm:w-52 md:w-44 lg:w-52 xl:w-60 2xl:w-72' 
+                className='lazy loader w-28 h-auto shadow-zinc-700 shadow-lg 2xs:w-36 xs:w-44 sm:w-52 md:w-44 lg:w-52 xl:w-60 2xl:w-72' 
                 src='https://fakeimg.pl/288x432?text=No+Image' 
                 alt={movieDetails.id}
               />}
@@ -111,7 +111,7 @@ export const MovieDetails = () => {
                 <p><b className='font-extrabold'>Duration:</b> {movieDetails.runtime} mins</p>
               </div>
               <div className='order-2 text-white tracking-widest text-xs xs:text-sm md:text-xs lg:text-sm xl:text-lg'>
-                <p><b className='font-extrabold'>Country:</b> {movieDetails.production_countries && movieDetails.production_countries[0].name}</p>
+                {/* <p><b className='font-extrabold'>Country:</b> {movieDetails.production_countries && movieDetails.production_countries[0].name}</p> */}
                 <p><b className='font-extrabold'>Budget:</b> ${Number(movieDetails.budget).toLocaleString()}</p>
                 <p><b className='font-extrabold'>Revenue:</b> ${Number(movieDetails.revenue).toLocaleString()}</p>
               </div>
