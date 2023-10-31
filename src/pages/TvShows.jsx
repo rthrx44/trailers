@@ -41,7 +41,7 @@ export const TvShows = ({showLoading}) => {
     <>
       {showLoading && <Loading/>}
       <section className="container mx-auto">
-        <h1 className='my-8 text-lg tracking-widest font-semibold mx-4 border-l-[0.3rem] border-red-700 pl-2 lg:text-xl xl:text-2xl'>DISCOVER MOVIES</h1>
+        <h1 className='my-8 text-lg tracking-widest font-semibold mx-4 border-l-[0.3rem] border-red-700 pl-2 lg:text-xl xl:text-2xl'>DISCOVER TV SHOWS</h1>
         <Pagination currentPage={page} setPage={setPage} totalPages={discoverTvShows.total_pages} />
         <div className="grid grid-cols-2 xs:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7">
           {tvShows.map((tv, idx) => (

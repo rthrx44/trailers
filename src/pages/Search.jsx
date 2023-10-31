@@ -3,12 +3,11 @@ import axios from 'axios';
 import Loading from "../components/Loading";
 import { DiscoverMoviesCard, DiscoverTvShowsCard } from '../components/utils/Card';
 import { Pagination } from '../components/utils/Pagination';
-import SearchIcon from '@mui/icons-material/Search';
 
 export const Search = ({showLoading}) => {
   const [search, setSearch] = useState({});
   const [movies, setMovies] = useState([]);
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState('avengers');
   const [page, setPage] = useState(1);
 
   const BASE_URL = "https://api.themoviedb.org/3";
