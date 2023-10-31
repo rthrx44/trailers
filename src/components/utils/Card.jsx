@@ -167,12 +167,12 @@ export const DiscoverMoviesCard = (props) => {
       <div>
         {props.data.poster_path ? 
           <img
-            className="lazy loader bg-cover w-full h-auto mx-auto"
+            className="bg-cover w-full h-auto mx-auto"
             src={`https://image.tmdb.org/t/p/w500${props.data.poster_path}`}
             alt={props.data.id}
           /> : 
           <img 
-            className="lazy loader bg-cover w-full h-auto mx-auto"
+            className="bg-cover w-full h-auto mx-auto"
             src='https://fakeimg.pl/203x305?text=No+Image'
             alt={props.data.id}
           />}
@@ -256,12 +256,12 @@ export const DiscoverTvShowsCard = (props) => {
       <div>
         {props.data.poster_path ? 
           <img
-            className="lazy loader bg-cover w-full h-auto mx-auto"
+            className="bg-cover w-full h-auto mx-auto"
             src={`https://image.tmdb.org/t/p/w500${props.data.poster_path}`}
             alt={props.data.id}
           /> : 
           <img 
-            className="lazy loader bg-cover w-full h-auto mx-auto"
+            className="bg-cover w-full h-auto mx-auto"
             src='https://fakeimg.pl/203x305?text=No+Image'
             alt={props.data.id}
           />}

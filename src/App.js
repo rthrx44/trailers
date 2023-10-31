@@ -11,6 +11,7 @@ import { SeasonDetails } from './pages/SeasonDetails';
 import { EpisodesDetails } from './pages/EpisodesDetails';
 import { Movies } from './pages/Movies';
 import { TvShows } from './pages/TvShows';
+import { Search } from './pages/Search';
 
 function App() {
   const [showLoading, setShowLoading] = useState(true);
@@ -54,7 +55,8 @@ function App() {
         <Navbar/>
           <Routes>
             <Route path='/' element={<Landing showLoading={showLoading}/>}/>
-            <Route path='/discover/movie/' element={<Movies showLoading={showLoading}/>}/>
+            <Route path='/search' element={<Search showLoading={showLoading}/>}/>
+            <Route path='/discover/movie' element={<Movies showLoading={showLoading}/>}/>
             <Route path='/discover/tv' element={<TvShows showLoading={showLoading}/>}/>
             <Route path='/movie/:id' element={<MovieDetails/>}/>
             <Route path='/tv/:id' element={<TvDetails showLoading={showLoading}/>}/>

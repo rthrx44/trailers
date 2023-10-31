@@ -24,7 +24,7 @@ export const Pagination = ({ currentPage, setPage, totalPages }) => {
         buttonClick={handlePrev}
         icon={<NavigateBeforeRoundedIcon/>}
       />
-        {currentPage} of {500 || totalPages}
+        {currentPage} of {totalPages}
       <PageButton
         buttonClick={handleNext}
         icon={<NavigateNextRoundedIcon/>}
