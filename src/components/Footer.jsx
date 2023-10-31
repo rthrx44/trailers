@@ -1,5 +1,5 @@
 import React from "react";
-import Trailers from "./assets/Trailers.png";
+import Trailers from "./assets/Trailers-Logo.png";
 import T from "./assets/T.png";
 import TMDBL from "./assets/TMDBL.svg";
 import TMDBSF from "./assets/TMDBSF.svg";

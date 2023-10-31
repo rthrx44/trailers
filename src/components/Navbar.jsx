@@ -1,5 +1,5 @@
 import React from 'react'
-import Trailers from './assets/Trailers.png' 
+import Trailers from './assets/Trailers-Logo.png' 
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import SearchIcon from '@mui/icons-material/Search';
 
