@@ -1,4 +1,4 @@
-<div align='center'><img style="width:30%" src='./src/components/assets/Trailers-logo.png'/></div>
+<div align='center'><img style="width:30%" src='./src/components/assets/Trailers-Logo.png'/></div>
 
 <h2>About the project ❓</h2>
 
