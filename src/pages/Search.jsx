@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react'
 import axios from 'axios';
 import Loading from "../components/Loading";
-import { DiscoverMoviesCard, DiscoverTvShowsCard } from '../components/utils/Card';
+import { CastCard, DiscoverMoviesCard, DiscoverTvShowsCard } from '../components/utils/Card';
 import { Pagination } from '../components/utils/Pagination';
 
 export const Search = ({showLoading}) => {
   const [search, setSearch] = useState({});
-  const [movies, setMovies] = useState([]);
+  const [results, setResults] = useState([]);
   const [query, setQuery] = useState('avengers');
   const [page, setPage] = useState(1);
 
@@ -29,10 +29,9 @@ export const Search = ({showLoading}) => {
 
   searchMovies.current = async () => {
     const { data } = await axios.get(`${BASE_URL}/search/multi`, options);
-    console.log(data);
     setSearch(data);
-    console.log(data.results);
-    setMovies(data.results)
+    console.log(data);
+    setResults(data.results)
   };
 
   useEffect(() => {
@@ -48,17 +47,17 @@ export const Search = ({showLoading}) => {
         <div className='flex justify-center items-center tracking-widest relative px-8 mt-4'>
           <input
             className='pl-2 pr-7 py-1 w-full rounded-sm text-xs font-semibold bg-[#3b3b3b] outline-none focus:outline-1 focus:outline-red-700 transition-all ease-in-out lg:text-sm xl:text-base' 
-            type="text" 
-            placeholder='SEARCH' 
+            type="search" 
+            placeholder='SEARCH MOVIES AND TV SHOWS' 
             defaultValue={''}
             onChange={(e) => setQuery(e.target.value)}
           />
         </div>
         <Pagination currentPage={page} setPage={setPage} totalPages={search.total_pages} />
         <div className="grid grid-cols-2 xs:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7">
-          {movies.map((movie, idx) => {
+          {results.map((dataSearch, idx) => {
             return <div key={idx} className="py-2 cursor-pointer">
-              {movie.media_type === 'movie' ? <DiscoverMoviesCard data={movie}/> : <DiscoverTvShowsCard data={movie}/>}
+              {dataSearch.media_type === 'movie' ? <DiscoverMoviesCard data={dataSearch}/> : <DiscoverTvShowsCard data={dataSearch}/> }
             </div>
           })}
         </div>

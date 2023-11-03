@@ -12,6 +12,7 @@ import { EpisodesDetails } from './pages/EpisodesDetails';
 import { Movies } from './pages/Movies';
 import { TvShows } from './pages/TvShows';
 import { Search } from './pages/Search';
+import { CastDetails } from './pages/CastDetails';
 
 function App() {
   const [showLoading, setShowLoading] = useState(true);
@@ -62,6 +63,7 @@ function App() {
             <Route path='/tv/:id' element={<TvDetails showLoading={showLoading}/>}/>
             <Route path='/tv/:id/season/:seasonNum' element={<SeasonDetails showLoading={showLoading}/>}/>
             <Route path='/tv/:id/season/:seasonNum/episode/:episodeNum' element={<EpisodesDetails/>}/>
+            <Route path='/person/:personId' element={<CastDetails showLoading={showLoading}/>}/>
           </Routes>
         <Footer/>
       </BrowserRouter>

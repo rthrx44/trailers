@@ -293,6 +293,7 @@ export const DiscoverTvShowsCard = (props) => {
 };
 
 export const CastCard = (props) => {
+  const setId = () => {localStorage.setItem("clickCast", JSON.stringify(props.data.id))};
   return (
     <div className="px-2 flex flex-col">
       {props.data.profile_path ? 
@@ -316,10 +317,11 @@ export const CastCard = (props) => {
             </p>
           </div>
         </div>
-        <a href="/">
+        <a href={`/person/${props.data.id}`}>
           <ViewInfo
             icon={<InfoOutlinedIcon sx={{ fontSize: 20 }} />}
             displayText="VIEW INFO"
+            buttonClick={setId}
           />
         </a>
       </div>

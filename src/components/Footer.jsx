@@ -13,7 +13,7 @@ function Footer () {
           <img src={T} alt="Trailers Logo" className="hidden md:flex md:h-40 lg:h-44 xl:h-48 2xl:h-52" />
           <ul className="flex flex-col items-center gap-6 text-xs tracking-widest lg:text-sm xl:text-base text-[#fff] md:gap-8">
             <li className="hover:text-red-700 cursor-pointer font-semibold transition-all ease-in-out"><a href="/">HOME</a></li>
-            <li className="hover:text-red-700 cursor-pointer font-semibold transition-all ease-in-out">BROWSE</li>
+            <li className="hover:text-red-700 cursor-pointer font-semibold transition-all ease-in-out"><a href="/search">SEARCH</a></li>
             <li className="hover:text-red-700 cursor-pointer font-semibold transition-all ease-in-out"><a href="/discover/movie">MOVIES</a></li>
             <li className="hover:text-red-700 cursor-pointer font-semibold transition-all ease-in-out"><a href="/discover/tv">TV SHOWS</a></li>
           </ul>
