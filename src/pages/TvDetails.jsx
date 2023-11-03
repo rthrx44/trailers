@@ -6,6 +6,7 @@ import { RatingCircle } from '../components/utils/RatingCircle';
 import { TvCast } from '../components/Cast';
 import { SimilarTv } from '../components/Similar';
 import { Seasons } from '../components/utils/Seasons';
+import ArrowUpwardRoundedIcon from '@mui/icons-material/ArrowUpwardRounded';
 
 export const TvDetails = ({showLoading}) => {
   const [tvDetails, setTvDetails] = useState({})
@@ -33,9 +34,29 @@ export const TvDetails = ({showLoading}) => {
     fetchTvDetails.current();
   }, []);
 
+  const [backToTop, setBackToTop] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 100) {
+        setBackToTop(true)
+      } else {
+        setBackToTop(false)
+      }
+    })
+  }, [])
+
+  const scrollUp = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    })
+  }
+
   return (
     <>
       {showLoading && <Loading/>}
+      {backToTop && <div className='bg-red-700 rounded-full flex justify-center items-center text-[#fff] fixed right-12 bottom-12 h-8 w-8 z-40 cursor-pointer transition-all hover:outline-1 hover:outline hover:outline-red-700 hover:outline-offset-[0.5rem] hover:transition-all xs:h-10 xs:w-10 md:h-12 md:w-12 lg:right-24 lg:bottom-20 2xl:right-[7%]' onClick={scrollUp} title='Scroll to top'><ArrowUpwardRoundedIcon/></div>}
       <section className='container mx-auto'>
         <Seasons/>
       </section>

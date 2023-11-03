@@ -3,7 +3,7 @@ import axios from 'axios'
 import dayjs from 'dayjs'
 import Loading from '../components/Loading'
 import { MovieCard, TvCard } from '../components/utils/Card'
-import { RatingCircle } from '../components/utils/RatingCircle'
+import ArrowUpwardRoundedIcon from '@mui/icons-material/ArrowUpwardRounded';
 
 export const CastDetails = ({showLoading}) => {
   const [castDetails, setCastDetails] = useState({})
@@ -39,10 +39,29 @@ export const CastDetails = ({showLoading}) => {
     fetchCastMovie.current()
   }, []);
 
+  const [backToTop, setBackToTop] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 100) {
+        setBackToTop(true)
+      } else {
+        setBackToTop(false)
+      }
+    })
+  }, [])
+
+  const scrollUp = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    })
+  }
+
   return (
     <>
       {showLoading && <Loading/>}
-      <div className='flex items-center items-center justify-center mt-12 md:mt-12'>
+      <div className='flex items-center justify-center mt-12 md:mt-12'>
         {castDetails.profile_path ? 
           <img 
             className='lazy loader w-28 h-auto shadow-zinc-700 shadow-lg 2xs:w-36 xs:w-44 sm:w-52 md:w-44 lg:w-52 xl:w-60 2xl:w-72'
@@ -56,6 +75,7 @@ export const CastDetails = ({showLoading}) => {
             alt={castDetails.id}
           />}
       </div>
+      {backToTop && <div className='bg-red-700 rounded-full flex justify-center items-center text-[#fff] fixed right-12 bottom-12 h-8 w-8 z-40 cursor-pointer transition-all hover:outline-1 hover:outline hover:outline-red-700 hover:outline-offset-[0.5rem] hover:transition-all xs:h-10 xs:w-10 md:h-12 md:w-12 lg:right-24 lg:bottom-20 2xl:right-[7%]' onClick={scrollUp} title='Scroll to top'><ArrowUpwardRoundedIcon/></div>}
       <div className='container mx-auto w-full h-full bg-gradient-to-t from-[#141414] from-25% md:from-35%'>
         <div className='md:grid md:my-12 lg:my-20 xl:my-32'>
           <div className='flex flex-col justify-center select-none gap-4 px-4 mb-4'>

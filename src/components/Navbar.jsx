@@ -16,7 +16,7 @@ function Navbar () {
               </a>
             </div>
             <div className='flex items-center md:gap-6'>
-              <label htmlFor="my-drawer-4" className="drawer-button btn btn-primary bg-transparent border-none outline-none hover:bg-transparent hover:text-red-700 active:text-red-700 md:hidden"><MenuOpenIcon/></label>            
+              <label htmlFor="my-drawer-4" className="drawer-button btn btn-primary bg-transparent border-none outline-none hover:bg-transparent hover:text-red-700 active:text-red-700 md:hidden text-[#fff]"><MenuOpenIcon/></label>            
               <ul className='gap-6 text-xs tracking-widest hidden md:flex md:items-center md:pr-4 lg:text-sm xl:text-base text-[#fff]'>
                 <li className='hover:text-red-700 cursor-pointer font-semibold transition-all ease-in-out'><a href="/">HOME</a></li>
                 <li className='hover:text-red-700 cursor-pointer font-semibold transition-all ease-in-out'><a href="/search">SEARCH</a></li>

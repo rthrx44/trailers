@@ -5,6 +5,7 @@ import Loading from '../components/Loading';
 import { SimilarTv } from '../components/Similar';
 import { TvCast } from '../components/Cast';
 import { EpisodeCard } from '../components/utils/Card';
+import ArrowUpwardRoundedIcon from '@mui/icons-material/ArrowUpwardRounded';
 
 export const SeasonDetails = ({showLoading}) => {
   const [seasonDetails, setSeasonDetails] = useState({})
@@ -34,10 +35,30 @@ export const SeasonDetails = ({showLoading}) => {
     fetchSeasonDetails.current();
   }, []);
 
+  const [backToTop, setBackToTop] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 100) {
+        setBackToTop(true)
+      } else {
+        setBackToTop(false)
+      }
+    })
+  }, [])
+
+  const scrollUp = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    })
+  }
+
   return (
     <>
       {showLoading && <Loading/>}
       <section>
+        {backToTop && <div className='bg-red-700 rounded-full flex justify-center items-center text-[#fff] fixed right-12 bottom-12 h-8 w-8 z-40 cursor-pointer transition-all hover:outline-1 hover:outline hover:outline-red-700 hover:outline-offset-[0.5rem] hover:transition-all xs:h-10 xs:w-10 md:h-12 md:w-12 lg:right-24 lg:bottom-20 2xl:right-[7%]' onClick={scrollUp} title='Scroll to top'><ArrowUpwardRoundedIcon/></div>}
         <h1 className='my-8 text-lg tracking-widest font-semibold mx-4 border-l-[0.3rem] border-red-700 pl-2 lg:text-xl xl:text-2xl'>EPISODES</h1>
         <div className='grid 2xs:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 my-4'>
           {episodeDetails.map((episode, idx) => {
