@@ -57,7 +57,7 @@ export const MovieDetails = () => {
           <p className='text-gray-500 text-center tracking-widest font-bold text-xs'>If current server doesn't work please try other servers below.</p>
           <iframe
             className="w-full aspect-video"
-            src={`https://autoembed.to/movie/tmdb/${getId}?server=2`}
+            src={`https://multiembed.mov/?video_id=${getId}&tmdb=1`}
             allowFullScreen={true}
             title='Video Container'
           ></iframe>
